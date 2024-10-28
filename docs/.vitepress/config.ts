@@ -45,7 +45,7 @@ export default defineConfig({
 
   head: [
     ['link', { rel: 'icon', href: '/voomap.svg', type: 'image/svg+xml' }],
-    ['meta', { name: 'author', content: 'CofCat' }],
+    ['meta', { name: 'author', content: 'ilyaliao' }],
     ['meta', { property: 'og:title', content: 'Voomap' }],
     ['meta', { property: 'og:description', content: 'Easy use of Google Maps with Composition API' }],
   ],
@@ -88,12 +88,12 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/CofCat456/voomap' },
+      { icon: 'github', link: 'https://github.com/ilyaliao/voomap' },
     ],
 
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2023 CofCat',
+      copyright: 'Copyright © 2024 ilyaliao',
     },
   },
 });

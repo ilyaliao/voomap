@@ -15,7 +15,7 @@ hero:
       link: /guide/
     - theme: alt
       text: View on GitHub
-      link: https://github.com/CofCat456/voomap
+      link: https://github.com/ilyaliao/voomap
 
 features:
   - title: Type Strong

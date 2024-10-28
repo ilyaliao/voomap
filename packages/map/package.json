@@ -2,13 +2,13 @@
   "name": "@voomap/map",
   "version": "0.0.1",
   "description": "Google Maps with Composition API",
-  "author": "CofCat <a25690756@gmail.com>",
+  "author": "ilyaliao",
   "license": "ISC",
-  "funding": "https://github.com/CofCat456",
-  "homepage": "https://github.com/CofCat456/voomap#readme",
+  "funding": "https://github.com/ilyaliao",
+  "homepage": "https://github.com/ilyaliao/voomap#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/CofCat456/voomap"
+    "url": "https://github.com/ilyaliao/voomap"
   },
   "keywords": [
     "voomap",

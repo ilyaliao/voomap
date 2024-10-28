@@ -74,4 +74,4 @@ This project is not yet complete, and I warmly welcome feature requests and impr
 
 ## 📄 License
 
-[MIT](./LICENSE) License &copy; 2023 [CofCat](https://github.com/CofCat456)
+[MIT](./LICENSE) License © 2024-PRESENT [Ilya Liao](https://github.com/ilyaliao)
