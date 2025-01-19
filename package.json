@@ -1,5 +1,6 @@
 {
   "name": "@voomap/monorepo",
+  "type": "module",
   "version": "0.0.1",
   "private": true,
   "packageManager": "pnpm@9.15.4",
@@ -21,6 +22,7 @@
     "@antfu/ni": "catalog:",
     "@googlemaps/js-api-loader": "catalog:",
     "@types/fs-extra": "catalog:",
+    "@types/google.maps": "catalog:",
     "@types/node": "catalog:",
     "@vitejs/plugin-vue": "catalog:",
     "bumpp": "catalog:",

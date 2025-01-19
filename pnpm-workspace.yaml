@@ -1,6 +1,6 @@
 packages:
-  - 'packages/**'
-  - 'playground/**'
+  - packages/*
+  - '!playgrounds'
 catalog:
   '@antfu/eslint-config': ^3.14.0
   '@antfu/ni': ^23.2.0
@@ -27,3 +27,4 @@ catalog:
   vitepress: 1.0.0-beta.7
   vue: ^3.5.13
   '@googlemaps/js-api-loader': ^1.16.8
+  '@types/google.maps': ^3.58.1

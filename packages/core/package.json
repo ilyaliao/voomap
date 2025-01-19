@@ -40,7 +40,10 @@
     "dev": "unbuild --stub"
   },
   "dependencies": {
-    "vue": "catalog:",
-    "@googlemaps/js-api-loader": "catalog:"
+    "@googlemaps/js-api-loader": "catalog:",
+    "vue": "catalog:"
+  },
+  "devDependencies": {
+    "@types/google.maps": "catalog:"
   }
 }
