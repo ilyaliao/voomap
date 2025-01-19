@@ -10,7 +10,7 @@ The following code excerpt demonstrates a basic usage example:
 
 ```vue
 <script setup lang="ts">
-import { Embed } from '@voomap/map';
+import { Embed } from '@voomap/map'
 </script>
 
 <template>
@@ -39,7 +39,7 @@ Choosing map modes
 - Type `'place' | 'view' | 'directions' | 'streetview' | 'search'`
 - Default `place`
 
-### address 
+### address
 
 Defines map marker location.
 
@@ -50,35 +50,35 @@ Defines map marker location.
 You can input URL-escaped place name, address, plus code, or place ID.
 :::
 
-### width 
+### width
 
 Controls the width.
 
 - Type `'numbe' | 'string'`
 - Default: `450`
 
-### height 
+### height
 
 Controls the height.
 
 - Type `'numbe' | 'string'`
 - Default: `250`
 
-### style 
+### style
 
 controls the style.
 
 - type `string`
 - default: `border:0`
 
-### allowfullscreen 
+### allowfullscreen
 
 Allow certain map parts to go full screen.
 
 - Type `boolean`
 - Default: `true`
 
-### center 
+### center
 
 Defines center of the map view.
 

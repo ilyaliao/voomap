@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { NCard, NInput, NTooltip } from 'naive-ui';
+import { useSearch } from '@voomap/core'
 
-import { useSearch } from '@voomap/core';
-import { ref } from 'vue';
+import { NCard, NInput, NTooltip } from 'naive-ui'
+import { ref } from 'vue'
 
-const { VITE_GOOGLE_MAP_API_KEY } = import.meta.env;
+const { VITE_GOOGLE_MAP_API_KEY } = import.meta.env
 
-const searchText = ref('');
+const searchText = ref('')
 
-const { isLoading, coordinates, getCoordinates } = useSearch(VITE_GOOGLE_MAP_API_KEY);
+const { isLoading, coordinates, getCoordinates } = useSearch(VITE_GOOGLE_MAP_API_KEY)
 
 function test() {
-  getCoordinates(searchText);
+  getCoordinates(searchText)
 }
 </script>
 

@@ -1,6 +1,0 @@
-dist
-html
-node_modules
-*.d.ts
-!.vitepress
-docs/.vitepress/cache/deps/*.*

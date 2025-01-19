@@ -1,12 +1,9 @@
-import { URL, fileURLToPath } from 'node:url';
-import { resolve } from 'node:path';
-import { defineConfig } from 'vite';
-import { replaceCodePlugin } from 'vite-plugin-replace';
-import VitePluginStyleInject from 'vite-plugin-style-inject';
-import VueMacros from 'unplugin-vue-macros/vite';
-import dts from 'vite-plugin-dts';
-
-import options from '../vue-macros.config';
+import { resolve } from 'node:path'
+import { fileURLToPath, URL } from 'node:url'
+import { defineConfig } from 'vite'
+import dts from 'vite-plugin-dts'
+import { replaceCodePlugin } from 'vite-plugin-replace'
+import VitePluginStyleInject from 'vite-plugin-style-inject'
 
 export default defineConfig({
   resolve: {
@@ -49,10 +46,9 @@ export default defineConfig({
       ],
     }),
     VitePluginStyleInject(),
-    VueMacros(options),
     dts({
       outDir: 'dist/types',
       rollupTypes: true,
     }),
   ],
-});
+})

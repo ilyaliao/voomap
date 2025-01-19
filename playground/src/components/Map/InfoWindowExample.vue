@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { GoogleMap, InfoWindow, Marker } from '@voomap/map';
-import { reactive, ref } from 'vue';
-import { createRandomCoordinate } from '../../mock';
+import { GoogleMap, InfoWindow, Marker } from '@voomap/map'
+import { reactive, ref } from 'vue'
+import { createRandomCoordinate } from '../../mock'
 
-const { VITE_GOOGLE_MAP_API_KEY } = import.meta.env;
+const { VITE_GOOGLE_MAP_API_KEY } = import.meta.env
 
-const zoom = ref(12);
-const center = reactive<google.maps.LatLngLiteral>(createRandomCoordinate());
-const singleRef = ref<InstanceType<typeof InfoWindow>>();
+const zoom = ref(12)
+const center = reactive<google.maps.LatLngLiteral>(createRandomCoordinate())
+const singleRef = ref<InstanceType<typeof InfoWindow>>()
 </script>
 
 <template>

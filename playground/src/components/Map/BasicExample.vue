@@ -1,24 +1,24 @@
 <script setup lang="ts">
-import { GoogleMap } from '@voomap/map';
-import { reactive, ref } from 'vue';
-import { createRandomCoordinate } from '../../mock';
+import { GoogleMap } from '@voomap/map'
+import { reactive, ref } from 'vue'
+import { createRandomCoordinate } from '../../mock'
 
-const { VITE_GOOGLE_MAP_API_KEY } = import.meta.env;
+const { VITE_GOOGLE_MAP_API_KEY } = import.meta.env
 
-const zoom = ref(12);
-const center = reactive<google.maps.LatLngLiteral>(createRandomCoordinate());
-const mapRef = ref<InstanceType<typeof GoogleMap> | null>(null);
+const zoom = ref(12)
+const center = reactive<google.maps.LatLngLiteral>(createRandomCoordinate())
+const mapRef = ref<InstanceType<typeof GoogleMap> | null>(null)
 
 function handleZoomIn(value: number) {
-  zoom.value = ++value;
+  zoom.value = ++value
 }
 
 function handleZoomOut(value: number) {
-  zoom.value = --value;
+  zoom.value = --value
 }
 
 function changeCenter() {
-  Object.assign(center, createRandomCoordinate());
+  Object.assign(center, createRandomCoordinate())
 }
 </script>
 

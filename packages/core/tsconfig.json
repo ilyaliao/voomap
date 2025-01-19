@@ -1,10 +1,3 @@
 {
-  "extends": "../../tsconfig.base.json",
-  "compilerOptions": {
-    "sourceMap": true,
-    "useDefineForClassFields": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "allowJs": true
-  }
+  "extends": "../../tsconfig.json"
 }

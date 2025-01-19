@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { NConfigProvider, NTabPane, NTabs, darkTheme } from 'naive-ui';
-import { Basic, Embed, InfoWindow, Marker, MarkerClusterer } from './components/Map';
-import Core from './components/Core';
+import { darkTheme, NConfigProvider, NTabPane, NTabs } from 'naive-ui'
+import Core from './components/Core'
+import { Basic, Embed, InfoWindow, Marker, MarkerClusterer } from './components/Map'
 
 const elementMap = new Map<string, any>()
   .set('Core', Core)
@@ -9,7 +9,7 @@ const elementMap = new Map<string, any>()
   .set('Marker', Marker)
   .set('InfoWindow', InfoWindow)
   .set('MarkerClusterer', MarkerClusterer)
-  .set('Embed', Embed);
+  .set('Embed', Embed)
 </script>
 
 <template>

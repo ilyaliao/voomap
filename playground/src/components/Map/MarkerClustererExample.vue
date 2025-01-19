@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import { GoogleMap, Marker, MarkerClusterer } from '@voomap/map';
-import { reactive, ref } from 'vue';
-import { GridAlgorithm } from '@googlemaps/markerclusterer';
-import { createRandomCoordinate } from '../../mock';
+import { GridAlgorithm } from '@googlemaps/markerclusterer'
+import { GoogleMap, Marker, MarkerClusterer } from '@voomap/map'
+import { reactive, ref } from 'vue'
+import { createRandomCoordinate } from '../../mock'
 
-const { VITE_GOOGLE_MAP_API_KEY } = import.meta.env;
+const { VITE_GOOGLE_MAP_API_KEY } = import.meta.env
 
-const zoom = ref(12);
+const zoom = ref(12)
 const center = reactive<google.maps.LatLngLiteral>({
   lat: 25.0855388,
   lng: 121.4791004,
-});
+})
 
 const algorithm = new GridAlgorithm({
   gridSize: 60,
-});
+})
 </script>
 
 <template>

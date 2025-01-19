@@ -1,18 +1,18 @@
-import { defineConfig } from 'vitepress';
+import { defineConfig } from 'vitepress'
 
 const guide = [
   {
     text: 'Get Started',
     link: '/guide/',
   },
-];
+]
 
 const core = [
   {
     text: 'useSearch',
     link: '/core/useSearch',
   },
-];
+]
 
 const map = [
   {
@@ -35,7 +35,7 @@ const map = [
     text: 'Embed',
     link: '/api/embed',
   },
-];
+]
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -59,7 +59,7 @@ export default defineConfig({
       // https://github.com/markdown-it/markdown-it/issues/878
       md.linkify.set({
         fuzzyLink: false,
-      });
+      })
     },
   },
 
@@ -96,4 +96,4 @@ export default defineConfig({
       copyright: 'Copyright © 2024 ilyaliao',
     },
   },
-});
+})

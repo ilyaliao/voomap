@@ -1,10 +1,4 @@
 <script setup lang="ts">
-import { computed, markRaw, onBeforeUnmount, onMounted, provide, reactive, ref, toRef, unref, watch } from 'vue'
-import { useMap } from '@voomap/core'
-import { apiSymbol, mapSymbol } from '@/utlis/symbol'
-import { taiwanRestriction } from '@/utlis/mapUtlis'
-import { hasChanged, transformCenter } from '@/utlis'
-import { mapEvents } from '@/utlis/events'
 import type {
   FullscreenControlOptions,
   IconMouseEvent,
@@ -22,6 +16,12 @@ import type {
   StreetViewPanorama,
   ZoomControlOptions,
 } from '@/types'
+import { hasChanged, transformCenter } from '@/utlis'
+import { mapEvents } from '@/utlis/events'
+import { taiwanRestriction } from '@/utlis/mapUtlis'
+import { apiSymbol, mapSymbol } from '@/utlis/symbol'
+import { useMap } from '@voomap/core'
+import { computed, markRaw, onBeforeUnmount, onMounted, provide, reactive, ref, toRef, unref, watch } from 'vue'
 
 interface CofMap {
   cGoogle: typeof google | undefined
@@ -130,7 +130,7 @@ provide(mapSymbol, toRef(() => cofMap.cMap))
 
 const getMapOption = computed<MapOptions>(() => {
   const {
-    // eslint-disable-next-line unused-imports/no-unused-vars
+
     apiKey,
     inTaiwan,
     restriction,

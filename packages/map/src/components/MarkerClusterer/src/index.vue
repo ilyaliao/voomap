@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { inject, markRaw, onBeforeUnmount, onMounted, provide, ref, unref, watch } from 'vue'
 import type { MarkerClustererOptions } from '@googlemaps/markerclusterer'
-import { MarkerClusterer, MarkerClustererEvents } from '@googlemaps/markerclusterer'
 import { apiSymbol, mapSymbol, markerClustererSymbol } from '@/utlis/symbol'
+import { MarkerClusterer, MarkerClustererEvents } from '@googlemaps/markerclusterer'
+import { inject, markRaw, onBeforeUnmount, onMounted, provide, ref, unref, watch } from 'vue'
 
 const props = defineProps<MarkerClustererOptions>()
 

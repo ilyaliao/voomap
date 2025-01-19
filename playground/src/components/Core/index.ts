@@ -1,3 +1,3 @@
-import Core from './index.vue';
+import Core from './index.vue'
 
-export default Core;
+export default Core

@@ -1,5 +1,5 @@
-import type { InjectionKey, Ref } from 'vue'
 import type { MarkerClusterer } from '@googlemaps/markerclusterer'
+import type { InjectionKey, Ref } from 'vue'
 import type { Map, Marker } from '../types'
 
 export const mapSymbol: InjectionKey<Ref<Map | undefined>> = Symbol('map')

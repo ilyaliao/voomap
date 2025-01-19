@@ -1,13 +1,13 @@
-import GoogleMap from './GoogleMap'
-import MarkerClusterer from './MarkerClusterer'
-import Marker from './Marker'
-import InfoWindow from './InfoWindow'
 import Embed from '@/components/Embed'
+import GoogleMap from './GoogleMap'
+import InfoWindow from './InfoWindow'
+import Marker from './Marker'
+import MarkerClusterer from './MarkerClusterer'
 
 export {
-  GoogleMap,
-  MarkerClusterer,
-  Marker,
-  InfoWindow,
   Embed,
+  GoogleMap,
+  InfoWindow,
+  Marker,
+  MarkerClusterer,
 }

@@ -3,7 +3,9 @@ iframe {
 }
 
 .VPFeatures .VPFeature {
-  transition: border-color 0.25s, filter 0.25s;
+  transition:
+    border-color 0.25s,
+    filter 0.25s;
 }
 
 .VPFeatures:has(.VPFeature:hover) .VPFeature:not(:hover) {

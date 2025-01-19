@@ -17,27 +17,30 @@
     "map",
     "google-map"
   ],
-  "sideEffects": false,
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.cjs.js"
+    ".": "./dist/index.mjs"
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
     }
   },
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "source": "src/index.ts",
   "scripts": {
-    "dev": "pnpm build:rollup -w",
-    "clean": "rimraf dist",
-    "build": "vite build --config ../../scripts/build-core.ts"
+    "build": "unbuild",
+    "dev": "unbuild --stub"
   },
   "dependencies": {
-    "@googlemaps/js-api-loader": "^1.16.6"
+    "vue": "^3.5.13",
+    "@googlemaps/js-api-loader": "^1.16.8"
   }
 }

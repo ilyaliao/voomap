@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { inject, markRaw, onBeforeMount, onMounted, ref, unref, useSlots, watch } from 'vue'
-import { apiSymbol, mapSymbol, markerSymbol } from '@/utlis/symbol'
 import type { InfoWindow, InfoWindowOpenOptions, InfoWindowOptions } from '@/types'
-import { type MarkerEvent, infoWindowEvents } from '@/utlis/events'
+import { infoWindowEvents, type MarkerEvent } from '@/utlis/events'
+import { apiSymbol, mapSymbol, markerSymbol } from '@/utlis/symbol'
+import { inject, markRaw, onBeforeMount, onMounted, ref, unref, useSlots, watch } from 'vue'
 
 interface Props extends InfoWindowOptions {
   initialState?: boolean

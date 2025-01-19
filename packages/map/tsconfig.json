@@ -1,11 +1,6 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "sourceMap": true,
-    "useDefineForClassFields": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "allowJs": true,
     "paths": {
       "@/*": ["./packages/map/src/*"]
     }

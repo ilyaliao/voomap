@@ -1,10 +1,10 @@
 <script setup lang="ts">
+import type { Icon, LatLng, LatLngLiteral, MapMouseEvent, MarkerLabel, MarkerShape, Point } from '@/types'
 import type { Ref } from 'vue'
-import { provide, ref } from 'vue'
 import { useMap } from '@/composables/index'
 import { markerEvents } from '@/utlis/events'
-import type { Icon, LatLng, LatLngLiteral, MapMouseEvent, MarkerLabel, MarkerShape, Point } from '@/types'
 import { markerSymbol } from '@/utlis/symbol'
+import { provide, ref } from 'vue'
 
 // FIXME: Cannot use betterDefine, need detailed testing.
 interface MarkerOptions {

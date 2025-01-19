@@ -8,13 +8,13 @@ The following code excerpt demonstrates a basic usage example:
 
 ```vue
 <script setup lang="ts">
-import { GoogleMap } from "@voomap/map";
-import { reactive } from "vue";
+import { GoogleMap } from '@voomap/map'
+import { reactive } from 'vue'
 
 const center = reactive<google.maps.LatLngLiteral>({
   lat: 25.0855388,
   lng: 121.4791004
-});
+})
 </script>
 
 <template>
@@ -59,44 +59,44 @@ Currently, the coordinates for Taiwan are hardcoded, and in the future, we may c
 
   ```ts
   interface MapOptions {
-    backgroundColor?: string;
-    center?: LatLng | null | LatLngLiteral;
-    clickableIcons?: boolean;
-    controlSize?: number;
-    disableDefaultUI?: boolean;
-    disableDoubleClickZoom?: boolean;
-    draggable?: boolean;
-    draggableCursor?: string;
-    draggingCursor?: string;
-    fullscreenControl?: boolean;
-    fullscreenControlOptions?: FullscreenControlOptions | null;
-    gestureHandling?: string;
-    heading?: number;
-    isFractionalZoomEnabled?: boolean;
-    keyboardShortcuts?: boolean;
-    mapId?: string;
-    mapTypeControl?: boolean;
-    mapTypeControlOptions?: MapTypeControlOptions | null;
-    mapTypeId?: string;
-    maxZoom?: number;
-    minZoom?: number;
-    noClear?: boolean;
-    panControl?: boolean;
-    panControlOptions?: PanControlOptions;
-    restriction?: MapRestriction;
-    rotateControl?: boolean;
-    rotateControlOptions?: RotateControlOptions;
-    scaleControl?: boolean;
-    scaleControlOptions?: ScaleControlOptions;
-    scrollwheel?: boolean;
-    streetView?: StreetViewPanorama;
-    streetViewControl?: boolean;
-    streetViewControlOptions?: StreetViewControlOptions;
-    styles?: MapTypeStyle[];
-    tilt?: number;
-    zoom?: number;
-    zoomControl?: boolean;
-    zoomControlOptions?: ZoomControlOptions;
+    backgroundColor?: string
+    center?: LatLng | null | LatLngLiteral
+    clickableIcons?: boolean
+    controlSize?: number
+    disableDefaultUI?: boolean
+    disableDoubleClickZoom?: boolean
+    draggable?: boolean
+    draggableCursor?: string
+    draggingCursor?: string
+    fullscreenControl?: boolean
+    fullscreenControlOptions?: FullscreenControlOptions | null
+    gestureHandling?: string
+    heading?: number
+    isFractionalZoomEnabled?: boolean
+    keyboardShortcuts?: boolean
+    mapId?: string
+    mapTypeControl?: boolean
+    mapTypeControlOptions?: MapTypeControlOptions | null
+    mapTypeId?: string
+    maxZoom?: number
+    minZoom?: number
+    noClear?: boolean
+    panControl?: boolean
+    panControlOptions?: PanControlOptions
+    restriction?: MapRestriction
+    rotateControl?: boolean
+    rotateControlOptions?: RotateControlOptions
+    scaleControl?: boolean
+    scaleControlOptions?: ScaleControlOptions
+    scrollwheel?: boolean
+    streetView?: StreetViewPanorama
+    streetViewControl?: boolean
+    streetViewControlOptions?: StreetViewControlOptions
+    styles?: MapTypeStyle[]
+    tilt?: number
+    zoom?: number
+    zoomControl?: boolean
+    zoomControlOptions?: ZoomControlOptions
     language?: string
   }
   ```
@@ -107,13 +107,13 @@ Currently, the coordinates for Taiwan are hardcoded, and in the future, we may c
 
 ```vue
 <script setup lang="ts">
-import { GoogleMap } from "@voomap/map";
-import { reactive } from "vue";
+import { GoogleMap } from '@voomap/map'
+import { reactive } from 'vue'
 
 const center = reactive<google.maps.LatLngLiteral>({
   lat: 25.0855388,
   lng: 121.4791004
-});
+})
 </script>
 
 <template>
@@ -140,16 +140,16 @@ The `Map` supports event listeners for all native events. You can find detailed 
 
 ```vue
 <script setup lang="ts">
-import { GoogleMap } from "@voomap/map";
-import { reactive } from "vue";
+import { GoogleMap } from '@voomap/map'
+import { reactive } from 'vue'
 
 const center = reactive<google.maps.LatLngLiteral>({
   lat: 25.0855388,
   lng: 121.4791004
-});
+})
 
 function handleClick(e: google.maps.MapMouseEvent) {
-  console.log("click", e.latLng);
+  console.log('click', e.latLng)
 }
 </script>
 
@@ -178,18 +178,18 @@ If you want to further manipulate the `Map`, you can use the public instance of 
 
 ```vue
 <script setup lang="ts">
-import { GoogleMap } from "@voomap/map";
-import { reactive, ref } from "vue";
+import { GoogleMap } from '@voomap/map'
+import { reactive, ref } from 'vue'
 
 const center = reactive<google.maps.LatLngLiteral>({
   lat: 25.0855388,
   lng: 121.4791004
-});
+})
 
-const mapRef = ref<InstanceType<typeof GoogleMap>>();
+const mapRef = ref<InstanceType<typeof GoogleMap>>()
 
 function handleClick() {
-  console.log(mapRef.value?.map.getCenter());
+  console.log(mapRef.value?.map.getCenter())
 }
 </script>
 

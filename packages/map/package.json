@@ -45,6 +45,6 @@
     "@voomap/core": "workspace:*"
   },
   "devDependencies": {
-    "@types/google.maps": "^3.55.5"
+    "@types/google.maps": "^3.58.1"
   }
 }

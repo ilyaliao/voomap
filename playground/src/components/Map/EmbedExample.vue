@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Embed } from '@voomap/map';
+import { Embed } from '@voomap/map'
 
-const { VITE_GOOGLE_MAP_API_KEY } = import.meta.env;
+const { VITE_GOOGLE_MAP_API_KEY } = import.meta.env
 </script>
 
 <template>

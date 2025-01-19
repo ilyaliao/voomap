@@ -1,5 +1,5 @@
-import type { MarkerOptions } from '.'
 import type { MarkerEvent } from '@/utlis/events'
+import type { MarkerOptions } from '.'
 
 // Map
 export type Map = google.maps.Map

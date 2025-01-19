@@ -20,13 +20,13 @@ Please remember to definitely apply for an `API`, this is the most crucial step.
 
 ```vue
 <script setup lang="ts">
-import { GoogleMap } from "@voomap/map";
-import { reactive } from "vue";
+import { GoogleMap } from '@voomap/map'
+import { reactive } from 'vue'
 
 const center = reactive<google.maps.LatLngLiteral>({
   lat: 25.0855388,
   lng: 121.4791004
-});
+})
 </script>
 
 <template>

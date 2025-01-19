@@ -1,7 +1,30 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.base.json" },
-    { "path": "./tsconfig.vite.json" }
+  "compilerOptions": {
+    "target": "esnext",
+    "jsx": "preserve",
+    "lib": ["esnext", "dom"],
+    "baseUrl": ".",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "paths": {
+      "@voomap/core": ["./packages/core/src/index.ts"],
+      "@voomap/map": ["./packages/map/src/index.ts"]
+    },
+    "resolveJsonModule": true,
+    "types": ["node", "vite/client"],
+    "strict": true,
+    "strictNullChecks": true,
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "packages"
+  ],
+  "exclude": [
+    "**/dist/**",
+    "**/node_modules/**",
+    "**/playground/**"
   ]
 }

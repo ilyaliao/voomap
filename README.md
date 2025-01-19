@@ -26,13 +26,13 @@ Before using `voomap`, the only thing you need to do is to [apply for a Google M
 
 ```html
 <script setup lang="ts">
-  import { GoogleMap } from "@voomap/map";
-  import { reactive } from "vue";
+  import { GoogleMap } from '@voomap/map'
+  import { reactive } from 'vue'
 
   const center = reactive<google.maps.LatLngLiteral>({
     lat: 25.0855388,
     lng: 121.4791004,
-  });
+  })
 </script>
 
 <template>
@@ -48,13 +48,13 @@ To make it easy for you to use **Google Map**, you can simply add the components
 
 ```html
 <script setup lang="ts">
-  import { GoogleMap, Marker } from "@voomap/map";
-  import { reactive } from "vue";
+  import { GoogleMap, Marker } from '@voomap/map'
+  import { reactive } from 'vue'
 
   const center = reactive<google.maps.LatLngLiteral>({
     lat: 25.0855388,
     lng: 121.4791004,
-  });
+  })
 </script>
 
 <template>
