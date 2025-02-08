@@ -1,0 +1,57 @@
+{
+  "name": "@voomap/map",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "Google Maps with Component",
+  "author": "ilyaliao",
+  "license": "MIT",
+  "funding": "https://github.com/ilyaliao",
+  "homepage": "https://github.com/ilyaliao/voomap#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ilyaliao/voomap"
+  },
+  "keywords": [
+    "voomap",
+    "vue3",
+    "composition-api",
+    "map",
+    "google-map"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "typings": "./dist/index.d.ts",
+  "files": [
+    "./LICENSE",
+    "./dist"
+  ],
+  "scripts": {
+    "build": "vite build"
+  },
+  "peerDependencies": {
+    "vue": ">= 3.5.0"
+  },
+  "dependencies": {
+    "@googlemaps/js-api-loader": "catalog:",
+    "@voomap/core": "workspace:*",
+    "@voomap/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/google.maps": "catalog:",
+    "@vitejs/plugin-vue": "catalog:",
+    "@vue/tsconfig": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-dts": "catalog:",
+    "vue": "catalog:",
+    "vue-component-type-helpers": "catalog:"
+  }
+}

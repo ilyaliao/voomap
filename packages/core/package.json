@@ -1,7 +1,7 @@
 {
   "name": "@voomap/core",
   "version": "0.0.1",
-  "description": "Google Maps with Composition API",
+  "description": "Google Maps with composables",
   "author": "ilyaliao",
   "license": "MIT",
   "funding": "https://github.com/ilyaliao",
@@ -39,12 +39,15 @@
     "build": "unbuild",
     "dev": "unbuild --stub"
   },
+  "peerDependencies": {
+    "vue": ">= 3.5.0"
+  },
   "dependencies": {
     "@googlemaps/js-api-loader": "catalog:",
-    "@voomap/shared": "workspace:*",
-    "vue": "catalog:"
+    "@voomap/shared": "workspace:*"
   },
   "devDependencies": {
-    "@types/google.maps": "catalog:"
+    "@types/google.maps": "catalog:",
+    "vue": "catalog:"
   }
 }

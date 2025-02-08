@@ -39,10 +39,11 @@
     "build": "unbuild",
     "dev": "unbuild --stub"
   },
-  "dependencies": {
-    "vue": "catalog:"
+  "peerDependencies": {
+    "vue": ">= 3.5.0"
   },
   "devDependencies": {
-    "@types/google.maps": "catalog:"
+    "@types/google.maps": "catalog:",
+    "vue": "catalog:"
   }
 }

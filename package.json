@@ -28,6 +28,7 @@
     "@types/google.maps": "catalog:",
     "@types/node": "catalog:",
     "@vitejs/plugin-vue": "catalog:",
+    "@vue/tsconfig": "catalog:",
     "bumpp": "catalog:",
     "consola": "catalog:",
     "eslint": "catalog:",
@@ -46,7 +47,8 @@
     "vite-plugin-replace": "catalog:",
     "vite-plugin-style-inject": "catalog:",
     "vitepress": "catalog:",
-    "vue": "catalog:"
+    "vue": "catalog:",
+    "vue-component-type-helpers": "catalog:"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"

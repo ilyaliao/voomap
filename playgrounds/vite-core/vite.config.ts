@@ -11,6 +11,7 @@ export default defineConfig(({ command }) => ({
     : {
         alias: {
           '@voomap/core': resolve(__dirname, '../../packages/core/index.ts'),
+          '@voomap/shared': resolve(__dirname, '../../packages/shared/index.ts'),
         },
       },
   build: {
