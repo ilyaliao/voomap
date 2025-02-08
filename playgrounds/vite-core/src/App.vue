@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useGoogleMap, useMarker } from '@voomap/core'
+import { useGoogleMap, useInfoWindow, useMarker } from '@voomap/core'
 import { toRefs, useTemplateRef } from 'vue'
 
 const { VITE_GOOGLE_MAP_API_KEY } = import.meta.env
@@ -9,9 +9,14 @@ const el = useTemplateRef('el')
 const { options, maps, map } = useGoogleMap(VITE_GOOGLE_MAP_API_KEY, el, { zoom: 11 })
 const { zoom, center } = toRefs(options.value)
 
-useMarker(maps, map, {
+const { marker } = useMarker(maps, map, {
   position: { lat: 25.0337, lng: 121.5636 },
 })
+
+useInfoWindow(maps, map, {
+  content: 'Hello',
+  position: { lat: 25.0337, lng: 121.5636 },
+}, marker)
 
 function zoomIn() {
   zoom.value++

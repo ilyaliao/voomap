@@ -1,4 +1,4 @@
 export * from './useGoogleMap'
-export * from './useMap'
+export * from './useInfoWindow'
 export * from './useMarker'
 export * from './useSearch'
