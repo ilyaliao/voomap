@@ -1,5 +1,5 @@
-import type { ShallowRef } from 'vue'
-import { markRaw, shallowRef, watchEffect } from 'vue'
+import type { MaybeRefOrGetter, ShallowRef } from 'vue'
+import { markRaw, shallowRef, toValue, watchEffect } from 'vue'
 
 export interface UseMarkerReturn {
   marker: ShallowRef<google.maps.Marker | undefined>
@@ -8,7 +8,7 @@ export interface UseMarkerReturn {
 export function useMarker(
   maps: ShallowRef<typeof globalThis.google.maps | undefined>,
   map: ShallowRef<google.maps.Map | undefined>,
-  options: google.maps.marker.AdvancedMarkerElementOptions = {},
+  options: MaybeRefOrGetter<google.maps.marker.AdvancedMarkerElementOptions>,
 ) {
   const marker = shallowRef<google.maps.Marker | undefined>()
 
@@ -17,7 +17,7 @@ export function useMarker(
       return
 
     marker.value = markRaw(new maps.value.Marker({
-      ...options,
+      ...toValue(options),
       map: map.value,
     }))
   })
