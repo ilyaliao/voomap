@@ -1,7 +1,8 @@
-import type { MaybeRefOrGetter, Raw, Ref, ShallowRef } from 'vue'
+import type { Raw, Ref, ShallowRef } from 'vue'
+import type { MaybeComputedElementRef } from '../shared'
 import type { MapOptions, ReturnMapOptions } from './types'
-import { markRaw, onBeforeUnmount, onMounted, ref, shallowRef, toValue, watch } from 'vue'
-import { type MaybeComputedElementRef, unrefElement } from '../unrefElement'
+import { markRaw, ref, shallowRef, watch } from 'vue'
+import { tryOnBeforeUnmount, unrefElement } from '../shared'
 import { useMap } from '../useMap'
 
 export interface UseGoogleMapReturn {
@@ -60,26 +61,23 @@ export function useGoogleMap(
     initMap(element as HTMLElement)
   })
 
-  watch(
+  watch([
     () => options.value.zoom,
-    (newZoom) => {
-      if (newZoom == null)
-        return
-
+    () => options.value.center,
+    options,
+  ], ([newZoom, newCenter], [oldZoom, oldCenter]) => {
+    if (newZoom != null && newZoom !== oldZoom)
       map.value?.setZoom(newZoom)
-    },
-    { deep: true, immediate: true },
-  )
 
-  watch(() => options.value.center, (newCenter) => {
-    if (newCenter == null)
-      return
+    if (newCenter != null && newCenter !== oldCenter) {
+      // panTo will animate the map to the new center, setCenter will set the map to the new center without animation
+      map.value?.panTo(newCenter)
 
-    // panTo will animate the map to the new center, setCenter will set the map to the new center without animation
-    map.value?.panTo(newCenter)
-  })
+      map.value?.setOptions(options.value)
+    }
+  }, { deep: true })
 
-  onBeforeUnmount(() => {
+  tryOnBeforeUnmount(() => {
     if (map.value)
       maps.value?.event.clearInstanceListeners(map.value)
   })
