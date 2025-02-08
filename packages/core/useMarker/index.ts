@@ -1,6 +1,6 @@
 import type { MaybeRefOrGetter, ShallowRef } from 'vue'
+import { createMarker, tryOnBeforeUnmount } from '@voomap/shared'
 import { markRaw, shallowRef, toValue, watchEffect } from 'vue'
-import { tryOnBeforeUnmount } from '../shared'
 
 export interface UseMarkerReturn {
   /**
@@ -20,10 +20,7 @@ export function useMarker(
     if (!maps.value || !map.value)
       return
 
-    marker.value = markRaw(new maps.value.Marker({
-      ...toValue(options),
-      map: map.value,
-    }))
+    marker.value = markRaw(createMarker(maps.value, map.value, toValue(options)))
   })
 
   tryOnBeforeUnmount(() => {

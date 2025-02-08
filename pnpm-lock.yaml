@@ -173,6 +173,9 @@ importers:
       '@googlemaps/js-api-loader':
         specifier: 'catalog:'
         version: 1.16.8
+      '@voomap/shared':
+        specifier: workspace:*
+        version: link:../shared
       vue:
         specifier: 'catalog:'
         version: 3.5.13(typescript@5.7.3)
@@ -180,6 +183,12 @@ importers:
       '@types/google.maps':
         specifier: 'catalog:'
         version: 3.58.1
+
+  packages/shared:
+    dependencies:
+      vue:
+        specifier: 'catalog:'
+        version: 3.5.13(typescript@5.7.3)
 
 packages:
 
