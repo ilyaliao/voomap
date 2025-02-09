@@ -1,15 +1,17 @@
-import type { Raw, Ref, ShallowRef } from 'vue'
-import type { MapOptions, ReturnMapOptions } from './types'
+import type { MaybeRefOrGetter, Raw, Reactive, Ref, ShallowRef } from 'vue'
+import type { MapOptions } from './types'
 import { type MaybeComputedElementRef, unrefElement } from '@vueuse/core'
 import { tryOnBeforeUnmount } from '@vueuse/shared'
-import { markRaw, ref, shallowRef, watch } from 'vue'
+import { markRaw, reactive, ref, shallowRef, toRefs, toValue, watch } from 'vue'
 import { useMap } from '../useMap'
 
 export interface UseGoogleMapReturn {
   google: ShallowRef<typeof globalThis.google | undefined>
   maps: ShallowRef<typeof globalThis.google.maps | undefined>
   map: ShallowRef<google.maps.Map | undefined>
-  options: Ref<ReturnMapOptions>
+  options: Reactive<MapOptions>
+  zoom: Ref<NonNullable<google.maps.MapOptions['zoom']>>
+  center: Ref<NonNullable<google.maps.MapOptions['center']>>
 }
 
 const _defaultOptions: NonNullable<MapOptions> = {
@@ -31,7 +33,7 @@ const _defaultOptions: NonNullable<MapOptions> = {
 export function useGoogleMap(
   apiKey: string,
   target: MaybeComputedElementRef,
-  defaultOptions: MapOptions = {},
+  defaultOptions: MaybeRefOrGetter<MapOptions> = {},
 ): UseGoogleMapReturn {
   defaultOptions = {
     ..._defaultOptions,
@@ -42,14 +44,20 @@ export function useGoogleMap(
   const maps = shallowRef<Raw<typeof globalThis.google.maps>>()
   const map = shallowRef<Raw<google.maps.Map>>()
 
-  // Since defaultOptions have been merged, the type of options will be ReturnMapOptions
-  const options: Ref<ReturnMapOptions> = ref(defaultOptions as ReturnMapOptions)
+  const options = reactive({
+    ...toValue(defaultOptions),
+    ..._defaultOptions,
+  })
+  const {
+    zoom = ref(_defaultOptions.zoom),
+    center = ref(_defaultOptions.center),
+  } = toRefs(options)
 
   async function initMap(element: HTMLElement) {
-    const { loader } = useMap(apiKey, options.value.language)
+    const { loader } = useMap(apiKey, options.language)
     google.value = markRaw(await loader.load())
     maps.value = markRaw(google.value.maps)
-    map.value = markRaw(new maps.value.Map(element, options.value))
+    map.value = markRaw(new maps.value.Map(element, options))
 
     // TODO: bind events
   }
@@ -62,8 +70,8 @@ export function useGoogleMap(
   })
 
   watch([
-    () => options.value.zoom,
-    () => options.value.center,
+    () => options.zoom,
+    () => options.center,
     options,
   ], ([newZoom, newCenter], [oldZoom, oldCenter]) => {
     if (newZoom != null && newZoom !== oldZoom)
@@ -73,7 +81,7 @@ export function useGoogleMap(
       // panTo will animate the map to the new center, setCenter will set the map to the new center without animation
       map.value?.panTo(newCenter)
 
-      map.value?.setOptions(options.value)
+      map.value?.setOptions(options)
     }
   }, { deep: true })
 
@@ -87,5 +95,7 @@ export function useGoogleMap(
     maps,
     map,
     options,
+    zoom: zoom as Ref<NonNullable<google.maps.MapOptions['zoom']>>,
+    center: center as Ref<NonNullable<google.maps.MapOptions['center']>>,
   }
 }
