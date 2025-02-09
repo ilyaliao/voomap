@@ -1,6 +1,6 @@
 import type { Ref } from 'vue'
 import { markRaw, onMounted, reactive, ref, toValue } from 'vue'
-import { useMap } from './useMap'
+import { useMap } from '../useMap'
 
 export function useSearch(apiKey: string, language: string = 'en') {
   const isLoading = ref(false)
