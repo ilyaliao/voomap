@@ -42,8 +42,10 @@
   "peerDependencies": {
     "vue": ">= 3.5.0"
   },
-  "devDependencies": {
-    "@types/google.maps": "catalog:",
+  "dependencies": {
     "vue": "catalog:"
+  },
+  "devDependencies": {
+    "@types/google.maps": "catalog:"
   }
 }

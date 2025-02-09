@@ -1,5 +1,5 @@
 {
-  "name": "vite-core",
+  "name": "vite-map",
   "type": "module",
   "version": "0.0.0",
   "private": true,
@@ -9,14 +9,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@voomap/core": "workspace:*",
-    "vue": "catalog:"
+    "@voomap/map": "workspace:*",
+    "vue": "^3.5.13"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/tsconfig": "^0.7.0",
-    "typescript": "~5.6.2",
-    "vite": "^6.0.5",
+    "typescript": "~5.7.2",
+    "vite": "^6.1.0",
     "vue-tsc": "^2.2.0"
   }
 }

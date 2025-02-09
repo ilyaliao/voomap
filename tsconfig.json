@@ -8,7 +8,8 @@
     "moduleResolution": "node",
     "paths": {
       "@voomap/core": ["./packages/core/src/index.ts"],
-      "@voomap/map": ["./packages/map/src/index.ts"]
+      "@voomap/map": ["./packages/map/src/index.ts"],
+      "@voomap/shared": ["./packages/shared/src/index.ts"]
     },
     "resolveJsonModule": true,
     "types": ["node", "vite/client"],
