@@ -1,5 +1,5 @@
 import type { MaybeRefOrGetter, ShallowRef } from 'vue'
-import { tryOnBeforeUnmount } from '@voomap/shared'
+import { tryOnBeforeUnmount } from '@vueuse/shared'
 import { markRaw, shallowRef, toValue, watch, watchEffect } from 'vue'
 
 export interface UseInfoWindowReturn {

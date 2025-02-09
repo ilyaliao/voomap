@@ -30,6 +30,9 @@ catalogs:
     '@vue/tsconfig':
       specifier: ^0.7.0
       version: 0.7.0
+    '@vueuse/shared':
+      specifier: ^12.5.0
+      version: 12.5.0
     bumpp:
       specifier: ^9.10.1
       version: 9.10.1
@@ -119,6 +122,12 @@ importers:
       '@vue/tsconfig':
         specifier: 'catalog:'
         version: 0.7.0(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))
+      '@vueuse/core':
+        specifier: ^12.5.0
+        version: 12.5.0(typescript@5.7.3)
+      '@vueuse/shared':
+        specifier: 'catalog:'
+        version: 12.5.0(typescript@5.7.3)
       bumpp:
         specifier: 'catalog:'
         version: 9.10.1
@@ -188,13 +197,16 @@ importers:
       '@voomap/shared':
         specifier: workspace:*
         version: link:../shared
+      '@vueuse/shared':
+        specifier: 'catalog:'
+        version: 12.5.0(typescript@5.7.3)
+      vue:
+        specifier: 'catalog:'
+        version: 3.5.13(typescript@5.7.3)
     devDependencies:
       '@types/google.maps':
         specifier: 'catalog:'
         version: 3.58.1
-      vue:
-        specifier: 'catalog:'
-        version: 3.5.13(typescript@5.7.3)
 
   packages/map:
     dependencies:
@@ -1267,6 +1279,9 @@ packages:
   '@types/web-bluetooth@0.0.17':
     resolution: {integrity: sha512-4p9vcSmxAayx72yn70joFoL44c9MO/0+iVEBIQXe3v2h2SiAsEIo/G5v6ObFWvNKRFjbrVadNf9LqEEZeQPzdA==}
 
+  '@types/web-bluetooth@0.0.20':
+    resolution: {integrity: sha512-g9gZnnXVq7gM7v3tJCWV/qw7w+KeOlSHAhgF9RytFyifW6AF61hdT2ucrYhPq9hLs5JIryeupHV3qGk95dH9ow==}
+
   '@typescript-eslint/eslint-plugin@8.20.0':
     resolution: {integrity: sha512-naduuphVw5StFfqp4Gq4WhIBE2gN1GEmMUExpJYknZJdRnc+2gDzB8Z3+5+/Kv33hPQRDGzQO/0opHE72lZZ6A==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
@@ -1407,6 +1422,9 @@ packages:
   '@vueuse/core@10.3.0':
     resolution: {integrity: sha512-BEM5yxcFKb5btFjTSAFjTu5jmwoW66fyV9uJIP4wUXXU8aR5Hl44gndaaXp7dC5HSObmgbnR2RN+Un1p68Mf5Q==}
 
+  '@vueuse/core@12.5.0':
+    resolution: {integrity: sha512-GVyH1iYqNANwcahAx8JBm6awaNgvR/SwZ1fjr10b8l1HIgDp82ngNbfzJUgOgWEoxjL+URAggnlilAEXwCOZtg==}
+
   '@vueuse/integrations@10.3.0':
     resolution: {integrity: sha512-Jgiv7oFyIgC6BxmDtiyG/fxyGysIds00YaY7sefwbhCZ2/tjEx1W/1WcsISSJPNI30in28+HC2J4uuU8184ekg==}
     peerDependencies:
@@ -1451,8 +1469,14 @@ packages:
   '@vueuse/metadata@10.3.0':
     resolution: {integrity: sha512-Ema3YhNOa4swDsV0V7CEY5JXvK19JI/o1szFO1iWxdFg3vhdFtCtSTP26PCvbUpnUtNHBY2wx5y3WDXND5Pvnw==}
 
+  '@vueuse/metadata@12.5.0':
+    resolution: {integrity: sha512-Ui7Lo2a7AxrMAXRF+fAp9QsXuwTeeZ8fIB9wsLHqzq9MQk+2gMYE2IGJW48VMJ8ecvCB3z3GsGLKLbSasQ5Qlg==}
+
   '@vueuse/shared@10.3.0':
     resolution: {integrity: sha512-kGqCTEuFPMK4+fNWy6dUOiYmxGcUbtznMwBZLC1PubidF4VZY05B+Oht7Jh7/6x4VOWGpvu3R37WHi81cKpiqg==}
+
+  '@vueuse/shared@12.5.0':
+    resolution: {integrity: sha512-vMpcL1lStUU6O+kdj6YdHDixh0odjPAUM15uJ9f7MY781jcYkIwFA4iv2EfoIPO6vBmvutI1HxxAwmf0cx5ISQ==}
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -4489,6 +4513,8 @@ snapshots:
 
   '@types/web-bluetooth@0.0.17': {}
 
+  '@types/web-bluetooth@0.0.20': {}
+
   '@typescript-eslint/eslint-plugin@8.20.0(@typescript-eslint/parser@8.20.0(eslint@9.18.0(jiti@2.4.2))(typescript@5.7.3))(eslint@9.18.0(jiti@2.4.2))(typescript@5.7.3)':
     dependencies:
       '@eslint-community/regexpp': 4.12.1
@@ -4684,6 +4710,15 @@ snapshots:
       - '@vue/composition-api'
       - vue
 
+  '@vueuse/core@12.5.0(typescript@5.7.3)':
+    dependencies:
+      '@types/web-bluetooth': 0.0.20
+      '@vueuse/metadata': 12.5.0
+      '@vueuse/shared': 12.5.0(typescript@5.7.3)
+      vue: 3.5.13(typescript@5.7.3)
+    transitivePeerDependencies:
+      - typescript
+
   '@vueuse/integrations@10.3.0(async-validator@4.2.5)(focus-trap@7.5.2)(vue@3.5.13(typescript@5.7.3))':
     dependencies:
       '@vueuse/core': 10.3.0(vue@3.5.13(typescript@5.7.3))
@@ -4698,12 +4733,20 @@ snapshots:
 
   '@vueuse/metadata@10.3.0': {}
 
+  '@vueuse/metadata@12.5.0': {}
+
   '@vueuse/shared@10.3.0(vue@3.5.13(typescript@5.7.3))':
     dependencies:
       vue-demi: 0.14.5(vue@3.5.13(typescript@5.7.3))
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
+
+  '@vueuse/shared@12.5.0(typescript@5.7.3)':
+    dependencies:
+      vue: 3.5.13(typescript@5.7.3)
+    transitivePeerDependencies:
+      - typescript
 
   acorn-jsx@5.3.2(acorn@8.14.0):
     dependencies:

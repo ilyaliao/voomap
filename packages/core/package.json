@@ -44,10 +44,12 @@
   },
   "dependencies": {
     "@googlemaps/js-api-loader": "catalog:",
-    "@voomap/shared": "workspace:*"
+    "@voomap/shared": "workspace:*",
+    "@vueuse/core": "catalog:",
+    "@vueuse/shared": "catalog:",
+    "vue": "catalog:"
   },
   "devDependencies": {
-    "@types/google.maps": "catalog:",
-    "vue": "catalog:"
+    "@types/google.maps": "catalog:"
   }
 }

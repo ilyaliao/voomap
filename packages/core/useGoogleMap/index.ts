@@ -1,7 +1,7 @@
-import type { MaybeComputedElementRef } from '@voomap/shared'
 import type { Raw, Ref, ShallowRef } from 'vue'
 import type { MapOptions, ReturnMapOptions } from './types'
-import { tryOnBeforeUnmount, unrefElement } from '@voomap/shared'
+import { type MaybeComputedElementRef, unrefElement } from '@vueuse/core'
+import { tryOnBeforeUnmount } from '@vueuse/shared'
 import { markRaw, ref, shallowRef, watch } from 'vue'
 import { useMap } from '../useMap'
 

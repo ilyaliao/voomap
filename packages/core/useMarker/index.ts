@@ -1,5 +1,6 @@
 import type { MaybeRefOrGetter, ShallowRef } from 'vue'
-import { createMarker, tryOnBeforeUnmount } from '@voomap/shared'
+import { createMarker } from '@voomap/shared'
+import { tryOnBeforeUnmount } from '@vueuse/shared'
 import { markRaw, shallowRef, toValue, watchEffect } from 'vue'
 
 export interface UseMarkerReturn {

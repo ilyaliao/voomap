@@ -30,6 +30,8 @@
     "@types/node": "catalog:",
     "@vitejs/plugin-vue": "catalog:",
     "@vue/tsconfig": "catalog:",
+    "@vueuse/core": "catalog:",
+    "@vueuse/shared": "catalog:",
     "bumpp": "catalog:",
     "consola": "catalog:",
     "eslint": "catalog:",
