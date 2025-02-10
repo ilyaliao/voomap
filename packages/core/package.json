@@ -15,6 +15,7 @@
     "vue3",
     "composition-api",
     "map",
+    "composable",
     "google-map"
   ],
   "exports": {
