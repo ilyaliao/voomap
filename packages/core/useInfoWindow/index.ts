@@ -1,6 +1,6 @@
 import type { MaybeRefOrGetter, ShallowRef } from 'vue'
-import { tryOnBeforeUnmount } from '@vueuse/shared'
-import { markRaw, shallowRef, toValue, watch, watchEffect } from 'vue'
+import { tryOnScopeDispose } from '@vueuse/shared'
+import { markRaw, shallowRef, toValue, watch } from 'vue'
 
 export interface UseInfoWindowReturn {
   /**
@@ -25,14 +25,24 @@ export function useInfoWindow(
 ): UseInfoWindowReturn {
   const infoWindow = shallowRef<google.maps.InfoWindow | undefined>()
 
-  watchEffect(() => {
-    if (!maps.value || !map.value)
-      return
+  function getContent() {
+    const _options = toValue(options)
+    return _options?.content ?? toValue(marker)?.getTitle() ?? ''
+  }
 
-    infoWindow.value = markRaw(new maps.value.InfoWindow({
-      ...toValue(options),
-    }))
-  })
+  watch(
+    [maps, map],
+    ([newMaps, newMap]) => {
+      if (!newMaps || !newMap)
+        return
+
+      const _options = toValue(options)
+      infoWindow.value = markRaw(new newMaps.InfoWindow({
+        ..._options,
+        content: getContent(),
+      }))
+    },
+  )
 
   function open(
     _options:
@@ -48,10 +58,10 @@ export function useInfoWindow(
     if (!infoWindow.value)
       return
 
-    infoWindow.value.open({
-      ...toValue(_options),
-      map: map.value,
-    }, _anchor ?? toValue(marker))
+    infoWindow.value.open(
+      _options,
+      _anchor ?? toValue(marker),
+    )
   }
 
   function close() {
@@ -61,14 +71,23 @@ export function useInfoWindow(
     infoWindow.value.close()
   }
 
+  function changeInfoWindowContent() {
+    if (!infoWindow.value)
+      return
+
+    infoWindow.value.setContent(getContent())
+  }
+
   watch(() => toValue(marker), (markerInstance) => {
     if (!markerInstance)
       return
 
+    // bind events
     markerInstance.addListener('click', open)
+    markerInstance.addListener('title_changed', changeInfoWindowContent)
   })
 
-  tryOnBeforeUnmount(() => {
+  tryOnScopeDispose(() => {
     if (!infoWindow.value)
       return
 

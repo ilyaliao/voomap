@@ -1,18 +1,9 @@
-import type { MaybeRefOrGetter, Raw, Reactive, Ref, ShallowRef } from 'vue'
-import type { MapOptions } from './types'
+import type { MaybeRefOrGetter, Raw, Ref } from 'vue'
+import type { MapOptions, UseGoogleMapReturn } from './types'
 import { type MaybeComputedElementRef, unrefElement } from '@vueuse/core'
-import { tryOnBeforeUnmount } from '@vueuse/shared'
+import { reactiveOmit, tryOnScopeDispose, watchDeep } from '@vueuse/shared'
 import { markRaw, reactive, ref, shallowRef, toRefs, toValue, watch } from 'vue'
 import { useMap } from '../useMap'
-
-export interface UseGoogleMapReturn {
-  google: ShallowRef<typeof globalThis.google | undefined>
-  maps: ShallowRef<typeof globalThis.google.maps | undefined>
-  map: ShallowRef<google.maps.Map | undefined>
-  options: Reactive<MapOptions>
-  zoom: Ref<NonNullable<google.maps.MapOptions['zoom']>>
-  center: Ref<NonNullable<google.maps.MapOptions['center']>>
-}
 
 const _defaultOptions: NonNullable<MapOptions> = {
   center: { lat: 25.0855388, lng: 121.4791004 },
@@ -35,19 +26,15 @@ export function useGoogleMap(
   target: MaybeComputedElementRef,
   defaultOptions: MaybeRefOrGetter<MapOptions> = {},
 ): UseGoogleMapReturn {
-  defaultOptions = {
-    ..._defaultOptions,
-    ...defaultOptions,
-  }
-
   const google = shallowRef<Raw<typeof globalThis.google>>()
   const maps = shallowRef<Raw<typeof globalThis.google.maps>>()
   const map = shallowRef<Raw<google.maps.Map>>()
 
   const options = reactive({
-    ...toValue(defaultOptions),
     ..._defaultOptions,
+    ...toValue(defaultOptions),
   })
+
   const {
     zoom = ref(_defaultOptions.zoom),
     center = ref(_defaultOptions.center),
@@ -58,8 +45,6 @@ export function useGoogleMap(
     google.value = markRaw(await loader.load())
     maps.value = markRaw(google.value.maps)
     map.value = markRaw(new maps.value.Map(element, options))
-
-    // TODO: bind events
   }
 
   watch(() => unrefElement(target), (element) => {
@@ -69,10 +54,10 @@ export function useGoogleMap(
     initMap(element as HTMLElement)
   })
 
-  watch([
+  watchDeep([
     () => options.zoom,
     () => options.center,
-    options,
+    () => reactiveOmit(options, 'zoom', 'center'),
   ], ([newZoom, newCenter], [oldZoom, oldCenter]) => {
     if (newZoom != null && newZoom !== oldZoom)
       map.value?.setZoom(newZoom)
@@ -83,9 +68,9 @@ export function useGoogleMap(
 
       map.value?.setOptions(options)
     }
-  }, { deep: true })
+  })
 
-  tryOnBeforeUnmount(() => {
+  tryOnScopeDispose(() => {
     if (map.value)
       maps.value?.event.clearInstanceListeners(map.value)
   })
@@ -99,3 +84,5 @@ export function useGoogleMap(
     center: center as Ref<NonNullable<google.maps.MapOptions['center']>>,
   }
 }
+
+export * from './types'

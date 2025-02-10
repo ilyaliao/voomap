@@ -12,7 +12,7 @@
       "@voomap/shared": ["./packages/shared/src/index.ts"]
     },
     "resolveJsonModule": true,
-    "types": ["node", "vite/client"],
+    "types": ["node", "vite/client", "google.maps"],
     "strict": true,
     "strictNullChecks": true,
     "noImplicitAny": false,

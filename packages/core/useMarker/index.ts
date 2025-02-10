@@ -1,7 +1,7 @@
 import type { MaybeRefOrGetter, ShallowRef } from 'vue'
 import { createMarker } from '@voomap/shared'
-import { tryOnBeforeUnmount } from '@vueuse/shared'
-import { markRaw, shallowRef, toValue, watchEffect } from 'vue'
+import { tryOnScopeDispose, watchDeep } from '@vueuse/shared'
+import { markRaw, shallowRef, toValue, watch } from 'vue'
 
 export interface UseMarkerReturn {
   /**
@@ -17,14 +17,27 @@ export function useMarker(
 ): UseMarkerReturn {
   const marker = shallowRef<google.maps.Marker | undefined>()
 
-  watchEffect(() => {
-    if (!maps.value || !map.value)
-      return
+  watch(
+    [maps, map],
+    ([newMaps, newMap]) => {
+      if (!newMaps || !newMap)
+        return
 
-    marker.value = markRaw(createMarker(maps.value, map.value, toValue(options)))
-  })
+      marker.value = markRaw(createMarker(newMaps, newMap, toValue(options)))
+    },
+  )
 
-  tryOnBeforeUnmount(() => {
+  watchDeep(
+    () => toValue(options),
+    (newOptions) => {
+      if (!marker.value)
+        return
+
+      marker.value.setOptions(newOptions)
+    },
+  )
+
+  tryOnScopeDispose(() => {
     if (!marker.value)
       return
 
