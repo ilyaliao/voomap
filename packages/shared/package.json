@@ -43,6 +43,7 @@
     "vue": ">= 3.5.0"
   },
   "dependencies": {
+    "@vueuse/shared": "catalog:",
     "vue": "catalog:"
   },
   "devDependencies": {
