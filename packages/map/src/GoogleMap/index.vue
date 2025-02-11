@@ -1,20 +1,31 @@
 <script setup lang="ts">
-import { type MapOptions, useGoogleMap } from '@voomap/core'
-import { toRefs, useAttrs, useTemplateRef, watchEffect } from 'vue'
+import { _defaultOptions, type MapOptions, useGoogleMap } from '@voomap/core'
+import { reactiveOmit } from '@vueuse/core'
+import { useTemplateRef } from 'vue'
 
-const props = defineProps<{ apiKey: string } & MapOptions>()
-const attr = useAttrs()
-const { apiKey, ...options } = toRefs(props)
+const props = withDefaults(
+  defineProps<{ apiKey: string } & MapOptions>(),
+  {
+    center: () => ({ lat: 25.0855388, lng: 121.4791004 }),
+    clickableIcons: true,
+    draggable: true,
+    fullscreenControl: true,
+    gestureHandling: 'auto',
+    isFractionalZoomEnabled: true,
+    maxZoom: 15,
+    minZoom: 8,
+    scaleControl: true,
+    scrollwheel: true,
+    zoom: 11,
+    zoomControl: true,
+    language: 'en',
+  },
+)
 
 const mapRef = useTemplateRef<HTMLDivElement>('map')
 
-const { map } = useGoogleMap(apiKey.value, mapRef)
-
-watchEffect(() => {
-  console.log(props)
-  console.log(options)
-  console.log(attr)
-})
+const options = reactiveOmit(props, (val, key) => val == null || key === 'apiKey')
+const { map } = useGoogleMap(props.apiKey, mapRef, options)
 </script>
 
 <template>
