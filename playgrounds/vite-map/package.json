@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@voomap/map": "workspace:*",
     "vue": "^3.5.13"
   },
   "devDependencies": {

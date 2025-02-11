@@ -11,7 +11,7 @@
       "~/*": ["src/*"]
     },
     "resolveJsonModule": true,
-    "types": ["node"],
+    "types": ["node", "google.maps"],
     "strict": true,
     "declaration": false,
     "outDir": "dist",

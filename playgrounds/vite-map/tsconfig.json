@@ -7,8 +7,7 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "paths": {
-      "~/*": ["src/*"],
-      "@voomap/core": ["../../packages/core/src"]
+      "~/*": ["src/*"]
     },
     "resolveJsonModule": true,
     "types": [

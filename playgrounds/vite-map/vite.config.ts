@@ -8,7 +8,6 @@ export default defineConfig({
   resolve: {
     alias: {
       '~': resolve(__dirname, 'src'),
-      '@voomap/map': resolve(__dirname, '../../packages/map/src'),
     },
   },
 })
