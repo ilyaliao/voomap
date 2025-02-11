@@ -15,7 +15,7 @@ function zoomOut() {
 }
 
 function listenZoomChanged() {
-  console.log('zoom_changed')
+  // console.log('zoom_changed')
 }
 </script>
 

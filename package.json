@@ -3,9 +3,9 @@
   "type": "module",
   "version": "0.0.1",
   "private": true,
-  "packageManager": "pnpm@9.15.4",
+  "packageManager": "pnpm@10.3.0",
   "scripts": {
-    "taze": "taze major -wIr",
+    "up": "taze major -wIr",
     "dev": "pnpm --filter './packages/**' dev",
     "build": "pnpm --filter './packages/**' build",
     "build:map": "pnpm --filter @voomap/map build",

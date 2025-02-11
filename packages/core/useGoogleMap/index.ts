@@ -1,6 +1,7 @@
+import type { MaybeComputedElementRef } from '@vueuse/core'
 import type { MaybeRefOrGetter, Raw } from 'vue'
 import type { MapOptions, UseGoogleMapReturn } from './types'
-import { type MaybeComputedElementRef, unrefElement } from '@vueuse/core'
+import { unrefElement } from '@vueuse/core'
 import { tryOnScopeDispose, watchDeep } from '@vueuse/shared'
 import { computed, markRaw, shallowRef, toValue, watch } from 'vue'
 import { useMap } from '../useMap'

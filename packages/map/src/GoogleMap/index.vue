@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { type GoogleMapEmits, googleMapsEmits, type MapOptions, useGoogleMap } from '@voomap/core'
+import type { GoogleMapEmits, MapOptions } from '@voomap/core'
+import { googleMapsEmits, useGoogleMap } from '@voomap/core'
 import { invoke, reactiveOmit, until } from '@vueuse/core'
 import { shallowRef } from 'vue'
 

@@ -2,34 +2,34 @@ packages:
   - packages/*
   - '!playgrounds'
 catalog:
-  '@antfu/eslint-config': ^3.14.0
-  '@antfu/ni': ^23.2.0
+  '@antfu/eslint-config': ^4.2.0
+  '@antfu/ni': ^23.3.1
+  '@googlemaps/js-api-loader': ^1.16.8
   '@types/fs-extra': ^11.0.4
-  '@types/node': ^20.17.14
+  '@types/google.maps': ^3.58.1
+  '@types/node': ^20.17.17
   '@vitejs/plugin-vue': ^5.2.1
-  bumpp: ^9.10.1
+  '@vue.ts/complex-types': ^0.6.0
+  '@vue/tsconfig': ^0.7.0
+  '@vueuse/core': ^12.5.0
+  '@vueuse/shared': ^12.5.0
+  bumpp: ^10.0.3
   consola: ^3.4.0
-  eslint: ^9.18.0
+  eslint: ^9.20.0
   eslint-plugin-format: ^1.0.1
   esno: ^4.8.0
   fs-extra: ^11.3.0
-  lint-staged: ^15.4.1
-  pnpm: ^9.15.4
+  lint-staged: ^15.4.3
+  pnpm: ^10.3.0
   rimraf: ^5.0.10
   simple-git-hooks: ^2.11.1
-  taze: ^18.2.0
+  taze: ^18.5.0
   typescript: ^5.7.3
   unbuild: ^3.3.1
-  vite: ^6.0.7
+  vite: ^6.1.0
   vite-plugin-dts: ^4.5.0
   vite-plugin-replace: ^0.1.1
   vite-plugin-style-inject: ^0.0.1
   vitepress: 1.0.0-beta.7
   vue: ^3.5.13
-  '@vueuse/core': ^12.5.0
-  '@vueuse/shared': ^12.5.0
-  '@vue/tsconfig': ^0.7.0
-  '@googlemaps/js-api-loader': ^1.16.8
-  '@types/google.maps': ^3.58.1
   vue-component-type-helpers: ^2.2.0
-  '@vue.ts/complex-types': ^0.6.0

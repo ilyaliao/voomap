@@ -15,7 +15,7 @@ Easy use of <b>Google Maps</b> with <b>Composition API</b>
 ## 📦 Install
 
 ```bash
-npm i @voomap/map
+npm i @voomap/map
 ```
 
 ## 🦄 Usage
