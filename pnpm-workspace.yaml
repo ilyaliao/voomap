@@ -32,3 +32,4 @@ catalog:
   '@googlemaps/js-api-loader': ^1.16.8
   '@types/google.maps': ^3.58.1
   vue-component-type-helpers: ^2.2.0
+  '@vue.ts/complex-types': ^0.6.0

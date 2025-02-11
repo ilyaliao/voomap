@@ -1,5 +1,7 @@
-import { resolve } from 'node:path'
-import vue from '@vitejs/plugin-vue'
+import path, { resolve } from 'node:path'
+import process from 'node:process'
+import Vue from '@vitejs/plugin-vue'
+import VueComplexTypes from '@vue.ts/complex-types/vite'
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
 import pkg from './package.json'
@@ -7,7 +9,10 @@ import pkg from './package.json'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    vue(),
+    VueComplexTypes({
+      tsconfigPath: path.join(process.cwd(), 'tsconfig.build.json'),
+    }),
+    Vue(),
     dts({
       tsconfigPath: 'tsconfig.build.json',
       cleanVueFileName: true,
@@ -40,6 +45,10 @@ export default defineConfig({
       ],
       output: {
         exports: 'named',
+        globals: {
+          'vue': 'Vue',
+          '@voomap/core': 'VoomapCore',
+        },
         assetFileNames: (chunkInfo) => {
           if (chunkInfo.name === 'style.css')
             return 'index.css'

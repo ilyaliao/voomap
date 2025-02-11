@@ -29,6 +29,7 @@
     "@types/google.maps": "catalog:",
     "@types/node": "catalog:",
     "@vitejs/plugin-vue": "catalog:",
+    "@vue.ts/complex-types": "catalog:",
     "@vue/tsconfig": "catalog:",
     "@vueuse/core": "catalog:",
     "@vueuse/shared": "catalog:",

@@ -35,7 +35,8 @@
     "./dist"
   ],
   "scripts": {
-    "build": "vite build"
+    "build": "vite build",
+    "dev": "vite build --watch"
   },
   "peerDependencies": {
     "vue": ">= 3.5.0"
@@ -48,6 +49,7 @@
   "devDependencies": {
     "@types/google.maps": "catalog:",
     "@vitejs/plugin-vue": "catalog:",
+    "@vue.ts/complex-types": "catalog:",
     "@vue/tsconfig": "catalog:",
     "vite": "catalog:",
     "vite-plugin-dts": "catalog:",
