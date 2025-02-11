@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { type GoogleMapEmits, googleMapsEmits, type MapOptions, useGoogleMap } from '@voomap/core'
-import { useCleanEvents } from '@voomap/shared'
 import { invoke, reactiveOmit, until } from '@vueuse/core'
 import { shallowRef } from 'vue'
 
@@ -25,8 +24,6 @@ const props = withDefaults(
 
 const emit = defineEmits<GoogleMapEmits>()
 
-const { collect } = useCleanEvents()
-
 // support vue <= 3.5
 const mapRef = shallowRef<HTMLDivElement>()
 
@@ -37,13 +34,10 @@ invoke(async () => {
   await until(map).toBeTruthy()
 
   for (const event of googleMapsEmits) {
-    collect(
-      () => map.value!.addListener(event, ((...args: unknown[]) => {
-        const kebabEvent = event.replace(/_([a-z])/g, (_, c) => c.toUpperCase())
-        console.log(123)
-        ;(emit as any)(kebabEvent, ...(args as any[]))
-      }) as any),
-    )
+    map.value!.addListener(event, ((...args: unknown[]) => {
+      const kebabEvent = event.replace(/_([a-z])/g, (_, c) => c.toUpperCase())
+      ;(emit as any)(kebabEvent, ...(args as any[]))
+    }) as any)
   }
 })
 </script>

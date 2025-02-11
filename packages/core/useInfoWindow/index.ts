@@ -1,5 +1,4 @@
 import type { MaybeRefOrGetter, ShallowRef } from 'vue'
-import { useCleanEvents } from '@voomap/shared'
 import { tryOnScopeDispose } from '@vueuse/shared'
 import { markRaw, shallowRef, toValue, watch } from 'vue'
 
@@ -25,8 +24,6 @@ export function useInfoWindow(
   marker: MaybeRefOrGetter<google.maps.Marker | undefined>,
 ): UseInfoWindowReturn {
   const infoWindow = shallowRef<google.maps.InfoWindow | undefined>()
-
-  const { collect, clean } = useCleanEvents()
 
   function getContent() {
     const _options = toValue(options)
@@ -84,9 +81,8 @@ export function useInfoWindow(
     if (!markerInstance)
       return
 
-    clean()
-    collect(() => markerInstance.addListener('click', open))
-    collect(() => markerInstance.addListener('title_changed', changeInfoWindowContent))
+    markerInstance.addListener('click', open)
+    markerInstance.addListener('title_changed', changeInfoWindowContent)
   })
 
   tryOnScopeDispose(() => {
