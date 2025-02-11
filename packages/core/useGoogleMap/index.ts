@@ -1,25 +1,9 @@
-import type { MaybeRefOrGetter, Raw, Ref } from 'vue'
+import type { MaybeRefOrGetter, Raw } from 'vue'
 import type { MapOptions, UseGoogleMapReturn } from './types'
 import { type MaybeComputedElementRef, unrefElement } from '@vueuse/core'
 import { reactiveOmit, tryOnScopeDispose, watchDeep } from '@vueuse/shared'
 import { markRaw, reactive, ref, shallowRef, toRefs, toValue, watch } from 'vue'
 import { useMap } from '../useMap'
-
-const _defaultOptions: NonNullable<MapOptions> = {
-  center: { lat: 25.0855388, lng: 121.4791004 },
-  clickableIcons: true,
-  draggable: true,
-  fullscreenControl: true,
-  gestureHandling: 'auto',
-  isFractionalZoomEnabled: true,
-  maxZoom: 15,
-  minZoom: 8,
-  scaleControl: true,
-  scrollwheel: true,
-  zoom: 11,
-  zoomControl: true,
-  language: 'en',
-}
 
 export function useGoogleMap(
   apiKey: string,
@@ -30,14 +14,10 @@ export function useGoogleMap(
   const maps = shallowRef<Raw<typeof globalThis.google.maps>>()
   const map = shallowRef<Raw<google.maps.Map>>()
 
-  const options = reactive({
-    ..._defaultOptions,
-    ...toValue(defaultOptions),
-  })
+  const options = reactive(toValue(defaultOptions))
 
   const {
-    zoom = ref(_defaultOptions.zoom),
-    center = ref(_defaultOptions.center),
+    zoom = ref(0),
   } = toRefs(options)
 
   async function initMap(element: HTMLElement) {
@@ -65,9 +45,9 @@ export function useGoogleMap(
     if (newCenter != null && newCenter !== oldCenter) {
       // panTo will animate the map to the new center, setCenter will set the map to the new center without animation
       map.value?.panTo(newCenter)
-
-      map.value?.setOptions(options)
     }
+
+    map.value?.setOptions(options)
   })
 
   tryOnScopeDispose(() => {
@@ -80,8 +60,7 @@ export function useGoogleMap(
     maps,
     map,
     options,
-    zoom: zoom as Ref<NonNullable<google.maps.MapOptions['zoom']>>,
-    center: center as Ref<NonNullable<google.maps.MapOptions['center']>>,
+    zoom,
   }
 }
 

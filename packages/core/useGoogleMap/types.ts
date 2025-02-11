@@ -11,6 +11,5 @@ export interface UseGoogleMapReturn {
   maps: ShallowRef<typeof globalThis.google.maps | undefined>
   map: ShallowRef<google.maps.Map | undefined>
   options: Reactive<MapOptions>
-  zoom: Ref<NonNullable<google.maps.MapOptions['zoom']>>
-  center: Ref<NonNullable<google.maps.MapOptions['center']>>
+  zoom: Ref<google.maps.MapOptions['zoom']>
 }
