@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { _defaultOptions, type MapOptions, useGoogleMap } from '@voomap/core'
+import { type MapOptions, useGoogleMap } from '@voomap/core'
 import { reactiveOmit } from '@vueuse/core'
-import { useTemplateRef } from 'vue'
+import { shallowRef } from 'vue'
 
 const props = withDefaults(
   defineProps<{ apiKey: string } & MapOptions>(),
@@ -22,12 +22,13 @@ const props = withDefaults(
   },
 )
 
-const mapRef = useTemplateRef<HTMLDivElement>('map')
+// support vue <= 3.5
+const mapRef = shallowRef<HTMLDivElement>()
 
-const options = reactiveOmit(props, (val, key) => val == null || key === 'apiKey')
-const { map } = useGoogleMap(props.apiKey, mapRef, options)
+const defaultOptions = reactiveOmit(props, (val, key) => val == null || key === 'apiKey')
+useGoogleMap(props.apiKey, mapRef, defaultOptions)
 </script>
 
 <template>
-  <div ref="map" />
+  <div ref="mapRef" />
 </template>
