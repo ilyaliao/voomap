@@ -10,6 +10,4 @@ export interface UseGoogleMapReturn {
   google: ShallowRef<typeof globalThis.google | undefined>
   maps: ShallowRef<typeof globalThis.google.maps | undefined>
   map: ShallowRef<google.maps.Map | undefined>
-  options: Reactive<MapOptions>
-  zoom: Ref<google.maps.MapOptions['zoom']>
 }

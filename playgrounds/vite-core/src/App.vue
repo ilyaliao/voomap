@@ -1,19 +1,20 @@
 <script setup lang="ts">
 import { useGoogleMap, useInfoWindow, useMarker } from '@voomap/core'
-import { useTemplateRef } from 'vue'
+import { reactive, useTemplateRef } from 'vue'
 
 const { VITE_GOOGLE_MAP_API_KEY } = import.meta.env
 
 const el = useTemplateRef('el')
 
-const { maps, map, zoom, center } = useGoogleMap(
+const options = reactive({
+  zoom: 10,
+  center: { lat: 25.0855388, lng: 121.4791004 },
+})
+
+const { maps, map } = useGoogleMap(
   VITE_GOOGLE_MAP_API_KEY,
   el,
-  {
-    zoom: 11,
-    disableDefaultUI: true,
-    zoomControl: false,
-  },
+  options,
 )
 
 const { marker } = useMarker(
@@ -35,15 +36,17 @@ useInfoWindow(
 )
 
 function zoomIn() {
-  zoom.value++
+  if (options.zoom)
+    options.zoom++
 }
 
 function zoomOut() {
-  zoom.value--
+  if (options.zoom)
+    options.zoom--
 }
 
 function resetCenter() {
-  center.value = { lat: 25.0855388, lng: 121.4791004 }
+  options.center = { lat: 25.0855388, lng: 121.4791004 }
 }
 
 function changeMarkerContent() {

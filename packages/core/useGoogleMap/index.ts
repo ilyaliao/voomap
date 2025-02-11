@@ -1,8 +1,8 @@
 import type { MaybeRefOrGetter, Raw } from 'vue'
 import type { MapOptions, UseGoogleMapReturn } from './types'
 import { type MaybeComputedElementRef, unrefElement } from '@vueuse/core'
-import { reactiveOmit, tryOnScopeDispose, watchDeep } from '@vueuse/shared'
-import { markRaw, reactive, ref, shallowRef, toRefs, toValue, watch } from 'vue'
+import { tryOnScopeDispose, watchDeep } from '@vueuse/shared'
+import { computed, markRaw, shallowRef, toValue, watch } from 'vue'
 import { useMap } from '../useMap'
 
 export function useGoogleMap(
@@ -14,17 +14,13 @@ export function useGoogleMap(
   const maps = shallowRef<Raw<typeof globalThis.google.maps>>()
   const map = shallowRef<Raw<google.maps.Map>>()
 
-  const options = reactive(toValue(defaultOptions))
-
-  const {
-    zoom = ref(0),
-  } = toRefs(options)
+  const options = computed(() => toValue(defaultOptions))
 
   async function initMap(element: HTMLElement) {
-    const { loader } = useMap(apiKey, options.language)
+    const { loader } = useMap(apiKey, options.value.language)
     google.value = markRaw(await loader.load())
     maps.value = markRaw(google.value.maps)
-    map.value = markRaw(new maps.value.Map(element, options))
+    map.value = markRaw(new maps.value.Map(element, options.value))
   }
 
   watch(() => unrefElement(target), (element) => {
@@ -35,9 +31,9 @@ export function useGoogleMap(
   })
 
   watchDeep([
-    () => options.zoom,
-    () => options.center,
-    () => reactiveOmit(options, 'zoom', 'center'),
+    () => options.value.zoom,
+    () => options.value.center,
+    () => options.value,
   ], ([newZoom, newCenter], [oldZoom, oldCenter]) => {
     if (newZoom != null && newZoom !== oldZoom)
       map.value?.setZoom(newZoom)
@@ -47,7 +43,7 @@ export function useGoogleMap(
       map.value?.panTo(newCenter)
     }
 
-    map.value?.setOptions(options)
+    map.value?.setOptions(toValue(options))
   })
 
   tryOnScopeDispose(() => {
@@ -59,8 +55,6 @@ export function useGoogleMap(
     google,
     maps,
     map,
-    options,
-    zoom,
   }
 }
 
