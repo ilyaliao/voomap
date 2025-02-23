@@ -40,7 +40,7 @@ export type GoogleMapEmitType = (typeof googleMapsEmits)[number]
 
 export interface GoogleMapEmits {
   boundsChanged: []
-  centerChanged: []
+  centerChanged: [lat: number, lng: number]
   click: [event: google.maps.MapMouseEvent]
   contextmenu: [event: google.maps.MapMouseEvent]
   dblclick: [event: google.maps.MapMouseEvent]
@@ -59,5 +59,5 @@ export interface GoogleMapEmits {
   renderingtypeChanged: []
   tilesloaded: []
   tiltChanged: []
-  zoomChanged: []
+  zoomChanged: [zoom: number]
 }

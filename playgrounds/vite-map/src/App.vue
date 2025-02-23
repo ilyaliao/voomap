@@ -13,10 +13,6 @@ function zoomIn() {
 function zoomOut() {
   zoom.value--
 }
-
-function listenZoomChanged() {
-  // console.log('zoom_changed')
-}
 </script>
 
 <template>
@@ -32,6 +28,6 @@ function listenZoomChanged() {
     style="width: 100vw; height: 100dvh"
     :api-key="VITE_GOOGLE_MAP_API_KEY"
     :zoom
-    @zoom-changed="listenZoomChanged"
+    @zoom-changed="zoom = $event"
   />
 </template>

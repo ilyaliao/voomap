@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { GoogleMapEmits, MapOptions } from '@voomap/core'
-import { googleMapsEmits, useGoogleMap } from '@voomap/core'
-import { invoke, reactiveOmit, until } from '@vueuse/core'
+import { useGoogleMap } from '@voomap/core'
+import { reactiveOmit } from '@vueuse/core'
 import { shallowRef } from 'vue'
 
 const props = withDefaults(
@@ -23,24 +23,13 @@ const props = withDefaults(
   },
 )
 
-const emit = defineEmits<GoogleMapEmits>()
+defineEmits<GoogleMapEmits>()
 
 // support vue <= 3.5
 const mapRef = shallowRef<HTMLDivElement>()
 
 const defaultOptions = reactiveOmit(props, (val, key) => val == null || key === 'apiKey')
-const { map } = useGoogleMap(props.apiKey, mapRef, defaultOptions)
-
-invoke(async () => {
-  await until(map).toBeTruthy()
-
-  for (const event of googleMapsEmits) {
-    map.value!.addListener(event, ((...args: unknown[]) => {
-      const kebabEvent = event.replace(/_([a-z])/g, (_, c) => c.toUpperCase())
-      ;(emit as any)(kebabEvent, ...(args as any[]))
-    }) as any)
-  }
-})
+useGoogleMap(props.apiKey, mapRef, defaultOptions)
 </script>
 
 <template>
