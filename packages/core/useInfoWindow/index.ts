@@ -1,21 +1,7 @@
 import type { MaybeRefOrGetter, ShallowRef } from 'vue'
+import type { UseInfoWindowReturn } from './types'
 import { tryOnScopeDispose } from '@vueuse/shared'
-import { markRaw, shallowRef, toValue, watch } from 'vue'
-
-export interface UseInfoWindowReturn {
-  /**
-   * The info window instance
-   */
-  infoWindow: ShallowRef<google.maps.InfoWindow | undefined>
-  /**
-   * Open the info window
-   */
-  open: () => void
-  /**
-   * Close the info window
-   */
-  close: () => void
-}
+import { shallowRef, toValue, watch } from 'vue'
 
 export function useInfoWindow(
   maps: ShallowRef<typeof globalThis.google.maps | undefined>,
@@ -36,10 +22,10 @@ export function useInfoWindow(
       if (!newMaps || !newMap)
         return
 
-      infoWindow.value = markRaw(new newMaps.InfoWindow({
+      infoWindow.value = new newMaps.InfoWindow({
         ...toValue(options),
         content: getContent(),
-      }))
+      })
     },
   )
 

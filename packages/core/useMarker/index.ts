@@ -1,7 +1,7 @@
 import type { MaybeRefOrGetter, ShallowRef } from 'vue'
 import { createMarker } from '@voomap/shared'
 import { tryOnScopeDispose, watchDeep } from '@vueuse/shared'
-import { markRaw, shallowRef, toValue, watch } from 'vue'
+import { shallowRef, toValue, watch } from 'vue'
 
 export interface UseMarkerReturn {
   /**
@@ -23,7 +23,7 @@ export function useMarker(
       if (!newMaps || !newMap)
         return
 
-      marker.value = markRaw(createMarker(newMaps, newMap, toValue(options)))
+      marker.value = createMarker(newMaps, newMap, toValue(options))
     },
   )
 

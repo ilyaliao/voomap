@@ -1,9 +1,9 @@
 import type { MaybeComputedElementRef } from '@vueuse/core'
-import type { ComponentInternalInstance, MaybeRefOrGetter, Raw } from 'vue'
+import type { ComponentInternalInstance, MaybeRefOrGetter } from 'vue'
 import type { MapOptions, UseGoogleMapReturn } from './types'
 import { unrefElement } from '@vueuse/core'
 import { tryOnScopeDispose, watchDeep } from '@vueuse/shared'
-import { computed, getCurrentInstance, markRaw, shallowRef, toValue, watch } from 'vue'
+import { computed, getCurrentInstance, shallowRef, toValue, watch } from 'vue'
 import { useMap } from '../useMap'
 import { googleMapsEmits } from './types'
 
@@ -13,17 +13,17 @@ export function useGoogleMap(
   defaultOptions: MaybeRefOrGetter<MapOptions> = {},
   emit: ComponentInternalInstance['emit'] | undefined = getCurrentInstance()?.emit,
 ): UseGoogleMapReturn {
-  const google = shallowRef<Raw<typeof globalThis.google>>()
-  const maps = shallowRef<Raw<typeof globalThis.google.maps>>()
-  const map = shallowRef<Raw<google.maps.Map>>()
+  const google = shallowRef<typeof globalThis.google>()
+  const maps = shallowRef<typeof globalThis.google.maps>()
+  const map = shallowRef<google.maps.Map>()
 
   const options = computed(() => toValue(defaultOptions))
 
   async function initMap(element: HTMLElement) {
     const { loader } = useMap(apiKey, options.value.language)
-    google.value = markRaw(await loader.load())
-    maps.value = markRaw(google.value.maps)
-    map.value = markRaw(new maps.value.Map(element, options.value))
+    google.value = await loader.load()
+    maps.value = google.value.maps
+    map.value = new maps.value.Map(element, options.value)
   }
 
   function bindEvents() {
