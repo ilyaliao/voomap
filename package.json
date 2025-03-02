@@ -48,8 +48,6 @@
     "unbuild": "catalog:",
     "vite": "catalog:",
     "vite-plugin-dts": "catalog:",
-    "vite-plugin-replace": "catalog:",
-    "vite-plugin-style-inject": "catalog:",
     "vitepress": "catalog:",
     "vue": "catalog:",
     "vue-component-type-helpers": "catalog:"
