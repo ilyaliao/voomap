@@ -1,6 +1,7 @@
 import type { MaybeComputedElementRef } from '@vueuse/core'
 import type { ComponentInternalInstance, MaybeRefOrGetter } from 'vue'
 import type { MapOptions, UseGoogleMapReturn } from './types'
+import { camelizeUnderscore } from '@voomap/shared'
 import { unrefElement } from '@vueuse/core'
 import { tryOnScopeDispose, watchDeep } from '@vueuse/shared'
 import { computed, getCurrentInstance, shallowRef, toValue, watch } from 'vue'
@@ -31,7 +32,7 @@ export function useGoogleMap(
       return
 
     for (const event of googleMapsEmits) {
-      const kebabEvent = event.replace(/_([a-z])/g, (_, c) => c.toUpperCase())
+      const kebabEvent = camelizeUnderscore(event)
 
       if (event === 'zoom_changed') {
         map.value?.addListener(event, () => {
