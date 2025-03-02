@@ -25,7 +25,6 @@ const props = withDefaults(
 
 defineEmits<GoogleMapEmits>()
 
-// support vue <= 3.5
 const mapRef = shallowRef<HTMLDivElement>()
 
 const defaultOptions = reactiveOmit(props, (val, key) => val == null || key === 'apiKey')

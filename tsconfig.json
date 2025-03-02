@@ -5,14 +5,21 @@
     "lib": ["esnext", "dom"],
     "baseUrl": ".",
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "Bundler",
     "paths": {
-      "@voomap/core": ["./packages/core/src/index.ts"],
+      "@voomap/core": ["./packages/core/index.ts"],
+      "@voomap/core/*": ["./packages/core/*"],
       "@voomap/map": ["./packages/map/src/index.ts"],
-      "@voomap/shared": ["./packages/shared/src/index.ts"]
+      "@voomap/map/*": ["./packages/map/src/*"],
+      "@voomap/shared": ["./packages/shared/index.ts"],
+      "@voomap/shared/*": ["./packages/shared/*"]
     },
     "resolveJsonModule": true,
-    "types": ["node", "vite/client", "google.maps"],
+    "types": [
+      "node",
+      "vite/client",
+      "google.maps"
+    ],
     "strict": true,
     "strictNullChecks": true,
     "noImplicitAny": false,
@@ -24,8 +31,7 @@
     "packages"
   ],
   "exclude": [
-    "**/dist/**",
-    "**/node_modules/**",
-    "**/playground/**"
+    "**/dist",
+    "node_modules"
   ]
 }

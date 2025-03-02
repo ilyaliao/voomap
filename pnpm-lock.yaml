@@ -84,12 +84,6 @@ catalogs:
     vite-plugin-dts:
       specifier: ^4.5.0
       version: 4.5.0
-    vite-plugin-replace:
-      specifier: ^0.1.1
-      version: 0.1.1
-    vite-plugin-style-inject:
-      specifier: ^0.0.1
-      version: 0.0.1
     vitepress:
       specifier: 1.0.0-beta.7
       version: 1.0.0-beta.7
@@ -182,12 +176,6 @@ importers:
       vite-plugin-dts:
         specifier: 'catalog:'
         version: 4.5.0(@types/node@20.17.17)(rollup@4.30.1)(typescript@5.7.3)(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(tsx@4.19.2)(yaml@2.7.0))
-      vite-plugin-replace:
-        specifier: 'catalog:'
-        version: 0.1.1(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(tsx@4.19.2)(yaml@2.7.0))
-      vite-plugin-style-inject:
-        specifier: 'catalog:'
-        version: 0.0.1(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(tsx@4.19.2)(yaml@2.7.0))
       vitepress:
         specifier: 'catalog:'
         version: 1.0.0-beta.7(@algolia/client-search@4.19.1)(@types/node@20.17.17)(async-validator@4.2.5)(search-insights@2.8.1)(typescript@5.7.3)
@@ -213,7 +201,7 @@ importers:
         specifier: 'catalog:'
         version: 12.5.0(typescript@5.7.3)
       vue:
-        specifier: 'catalog:'
+        specifier: '>= 3.2.0'
         version: 3.5.13(typescript@5.7.3)
     devDependencies:
       '@types/google.maps':
@@ -263,7 +251,7 @@ importers:
         specifier: 'catalog:'
         version: 12.5.0(typescript@5.7.3)
       vue:
-        specifier: 'catalog:'
+        specifier: '>= 3.2.0'
         version: 3.5.13(typescript@5.7.3)
     devDependencies:
       '@types/google.maps':
@@ -3606,16 +3594,6 @@ packages:
     peerDependenciesMeta:
       vite:
         optional: true
-
-  vite-plugin-replace@0.1.1:
-    resolution: {integrity: sha512-v+okl3JNt2pf1jDYijw+WPVt6h9FWa/atTi+qnSFBqmKThLTDhlesx0r3bh+oFPmxRJmis5tNx9HtN6lGFoqWg==}
-    peerDependencies:
-      vite: ^2
-
-  vite-plugin-style-inject@0.0.1:
-    resolution: {integrity: sha512-VsaBOb8ozMQn3kpMt4gIcyNt4BRMQ3Cq30eLIBtq1CH8U6iB1FnxVYspwITzJdXbMQA61QhyAx9QnNLwVRbDlg==}
-    peerDependencies:
-      vite: ^2.0.0
 
   vite@4.5.3:
     resolution: {integrity: sha512-kQL23kMeX92v3ph7IauVkXkikdDRsYMGTVl5KY2E9OY4ONLvkHf04MDTbnfo6NKxZiDLWzVpP5oTa8hQD8U3dg==}
@@ -7418,14 +7396,6 @@ snapshots:
       - '@types/node'
       - rollup
       - supports-color
-
-  vite-plugin-replace@0.1.1(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(tsx@4.19.2)(yaml@2.7.0)):
-    dependencies:
-      vite: 6.1.0(@types/node@20.17.17)(jiti@2.4.2)(tsx@4.19.2)(yaml@2.7.0)
-
-  vite-plugin-style-inject@0.0.1(vite@6.1.0(@types/node@20.17.17)(jiti@2.4.2)(tsx@4.19.2)(yaml@2.7.0)):
-    dependencies:
-      vite: 6.1.0(@types/node@20.17.17)(jiti@2.4.2)(tsx@4.19.2)(yaml@2.7.0)
 
   vite@4.5.3(@types/node@20.17.17):
     dependencies:
