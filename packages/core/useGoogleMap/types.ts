@@ -12,6 +12,11 @@ export interface UseGoogleMapReturn {
   map: ShallowRef<google.maps.Map | undefined>
 }
 
+/**
+ * Google Map Events
+ *
+ * @see https://developers.google.com/maps/documentation/javascript/reference/map?hl=zh-tw#Map-Events
+ */
 export const googleMapsEmits = [
   'bounds_changed',
   'center_changed',
@@ -38,6 +43,11 @@ export const googleMapsEmits = [
 
 export type GoogleMapEmitType = (typeof googleMapsEmits)[number]
 
+/**
+ * Google Map Events
+ *
+ * @see https://developers.google.com/maps/documentation/javascript/reference/map?hl=zh-tw#Map-Events
+ */
 export interface GoogleMapEmits {
   boundsChanged: []
   centerChanged: [lat: number, lng: number]

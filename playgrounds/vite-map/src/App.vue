@@ -1,10 +1,13 @@
 <script setup lang="ts">
-import { GoogleMap } from '@voomap/map'
-import { ref } from 'vue'
+import type { ComponentExposed } from 'vue-component-type-helpers'
+import { GoogleMap, Marker } from '@voomap/map'
+import { ref, useTemplateRef } from 'vue'
 
 const { VITE_GOOGLE_MAP_API_KEY } = import.meta.env
 
 const zoom = ref(10)
+
+const markerRef = useTemplateRef<ComponentExposed<typeof Marker>>('markerRef')
 
 function zoomIn() {
   zoom.value++
@@ -29,5 +32,12 @@ function zoomOut() {
     :api-key="VITE_GOOGLE_MAP_API_KEY"
     :zoom
     @zoom-changed="zoom = $event"
-  />
+  >
+    <Marker
+      ref="markerRef"
+      :position="{ lat: 25.0855388, lng: 121.4791004 }"
+    >
+      Hello I'm Marker
+    </Marker>
+  </GoogleMap>
 </template>

@@ -1,5 +1,16 @@
+<script lang="ts">
+import type { GoogleMapEmits, GoogleMapEmitType, MapOptions, UseGoogleMapReturn } from '@voomap/core'
+import { createContext } from '@voomap/shared'
+
+interface GoogleMapContext extends UseGoogleMapReturn {}
+
+export const [injectGoogleMapContext, provideGoogleMapContext]
+= createContext<GoogleMapContext>('GoogleMap')
+
+export type { GoogleMapEmits, GoogleMapEmitType, MapOptions }
+</script>
+
 <script setup lang="ts">
-import type { GoogleMapEmits, MapOptions } from '@voomap/core'
 import { useGoogleMap } from '@voomap/core'
 import { reactiveOmit } from '@vueuse/core'
 import { shallowRef } from 'vue'
@@ -28,9 +39,23 @@ defineEmits<GoogleMapEmits>()
 const mapRef = shallowRef<HTMLDivElement>()
 
 const defaultOptions = reactiveOmit(props, (val, key) => val == null || key === 'apiKey')
-useGoogleMap(props.apiKey, mapRef, defaultOptions)
+const { google, maps, map } = useGoogleMap(props.apiKey, mapRef, defaultOptions)
+
+defineExpose({
+  google,
+  maps,
+  map,
+})
+
+provideGoogleMapContext({
+  google,
+  maps,
+  map,
+})
 </script>
 
 <template>
-  <div ref="mapRef" />
+  <div ref="mapRef">
+    <slot />
+  </div>
 </template>

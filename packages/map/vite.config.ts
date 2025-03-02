@@ -48,6 +48,7 @@ export default defineConfig({
         globals: {
           'vue': 'Vue',
           '@voomap/core': 'VoomapCore',
+          '@voomap/shared': 'VoomapShared',
         },
         assetFileNames: (chunkInfo) => {
           if (chunkInfo.name === 'style.css')

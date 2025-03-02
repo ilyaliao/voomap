@@ -16,7 +16,6 @@ catalog:
   bumpp: ^10.0.3
   consola: ^3.4.0
   eslint: ^9.20.0
-  eslint-plugin-format: ^1.0.1
   esno: ^4.8.0
   fs-extra: ^11.3.0
   lint-staged: ^15.4.3

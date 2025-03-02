@@ -11,6 +11,11 @@ import { googleMapsEmits } from './types'
 export function useGoogleMap(
   apiKey: string,
   target: MaybeComputedElementRef,
+  /**
+   * Map Options
+   *
+   * @see https://developers.google.com/maps/documentation/javascript/reference/map?hl=zh-tw#MapOptions-Properties
+   */
   defaultOptions: MaybeRefOrGetter<MapOptions> = {},
   emit: ComponentInternalInstance['emit'] | undefined = getCurrentInstance()?.emit,
 ): UseGoogleMapReturn {
