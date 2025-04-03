@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useGoogleMap, useInfoWindow, useMarker } from '@voomap/core'
 import { watchOnce } from '@vueuse/core'
-import { reactive, shallowRef, useTemplateRef, watch } from 'vue'
+import { reactive, shallowRef, useTemplateRef } from 'vue'
 
 const { VITE_GOOGLE_MAP_API_KEY } = import.meta.env
 

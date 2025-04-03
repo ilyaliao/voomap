@@ -41,15 +41,15 @@
     "dev": "unbuild --stub"
   },
   "peerDependencies": {
-    "vue": ">= 3.2.0"
+    "vue": "catalog:frontend"
   },
   "dependencies": {
-    "@googlemaps/js-api-loader": "catalog:",
+    "@googlemaps/js-api-loader": "catalog:frontend",
     "@voomap/shared": "workspace:*",
-    "@vueuse/core": "catalog:",
-    "@vueuse/shared": "catalog:"
+    "@vueuse/core": "catalog:frontend",
+    "@vueuse/shared": "catalog:frontend"
   },
   "devDependencies": {
-    "@types/google.maps": "catalog:"
+    "@types/google.maps": "catalog:types"
   }
 }

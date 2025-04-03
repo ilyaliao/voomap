@@ -40,12 +40,12 @@
     "dev": "unbuild --stub"
   },
   "peerDependencies": {
-    "vue": ">= 3.2.0"
+    "vue": "catalog:frontend"
   },
   "dependencies": {
-    "@vueuse/shared": "catalog:"
+    "@vueuse/shared": "catalog:frontend"
   },
   "devDependencies": {
-    "@types/google.maps": "catalog:"
+    "@types/google.maps": "catalog:types"
   }
 }

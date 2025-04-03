@@ -1,32 +1,41 @@
 packages:
   - packages/*
   - '!playgrounds'
-catalog:
-  '@antfu/eslint-config': ^4.2.0
-  '@antfu/ni': ^23.3.1
-  '@googlemaps/js-api-loader': ^1.16.8
-  '@types/fs-extra': ^11.0.4
-  '@types/google.maps': ^3.58.1
-  '@types/node': ^20.17.17
-  '@vitejs/plugin-vue': ^5.2.1
-  '@vue.ts/complex-types': ^0.6.0
-  '@vue/tsconfig': ^0.7.0
-  '@vueuse/core': ^12.5.0
-  '@vueuse/shared': ^12.5.0
-  bumpp: ^10.0.3
-  consola: ^3.4.0
-  eslint: ^9.20.0
-  esno: ^4.8.0
-  fs-extra: ^11.3.0
-  lint-staged: ^15.4.3
-  pnpm: ^10.3.0
-  rimraf: ^5.0.10
-  simple-git-hooks: ^2.11.1
-  taze: ^18.5.0
-  typescript: ^5.7.3
-  unbuild: ^3.3.1
-  vite: ^6.1.0
-  vite-plugin-dts: ^4.5.0
-  vitepress: 1.0.0-beta.7
-  vue: ^3.5.13
-  vue-component-type-helpers: ^2.2.0
+catalogs:
+  build:
+    '@vitejs/plugin-vue': ^5.2.3
+    '@vue.ts/complex-types': ^0.6.0
+    unbuild: ^3.3.1
+    vite: ^6.2.4
+    vite-plugin-dts: ^4.5.3
+    vitepress: 1.0.0-beta.7
+    vue-component-type-helpers: ^2.2.0
+  dev:
+    '@antfu/eslint-config': ^4.11.0
+    '@antfu/ni': ^23.3.1
+    '@vue/tsconfig': ^0.7.0
+    bumpp: ^10.0.3
+    eslint: ^9.23.0
+    esno: ^4.8.0
+    fs-extra: ^11.3.0
+    lint-staged: ^15.5.0
+    pnpm: ^10.7.1
+    rimraf: ^6.0.1
+    simple-git-hooks: ^2.12.1
+    taze: ^18.5.0
+    typescript: ^5.8.2
+    vue-tsc: ^2.2.8
+  frontend:
+    '@googlemaps/js-api-loader': ^1.16.8
+    '@vueuse/core': ^13.0.0
+    '@vueuse/shared': ^13.0.0
+    vue: ^3.5.13
+  types:
+    '@types/fs-extra': ^11.0.4
+    '@types/google.maps': ^3.58.1
+    '@types/node': ^22.14.0
+onlyBuiltDependencies:
+  - pnpm
+  - unbuild
+  - esno
+  - simple-git-hooks

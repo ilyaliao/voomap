@@ -39,21 +39,21 @@
     "dev": "vite build --watch"
   },
   "peerDependencies": {
-    "vue": ">= 3.2.0"
+    "vue": "catalog:frontend"
   },
   "dependencies": {
-    "@googlemaps/js-api-loader": "catalog:",
+    "@googlemaps/js-api-loader": "catalog:frontend",
     "@voomap/core": "workspace:*",
     "@voomap/shared": "workspace:*"
   },
   "devDependencies": {
-    "@types/google.maps": "catalog:",
-    "@vitejs/plugin-vue": "catalog:",
-    "@vue.ts/complex-types": "catalog:",
-    "@vue/tsconfig": "catalog:",
-    "vite": "catalog:",
-    "vite-plugin-dts": "catalog:",
-    "vue": "catalog:",
-    "vue-component-type-helpers": "catalog:"
+    "@types/google.maps": "catalog:types",
+    "@vitejs/plugin-vue": "catalog:build",
+    "@vue.ts/complex-types": "catalog:build",
+    "@vue/tsconfig": "catalog:dev",
+    "vite": "catalog:build",
+    "vite-plugin-dts": "catalog:build",
+    "vue": "catalog:frontend",
+    "vue-component-type-helpers": "catalog:build"
   }
 }

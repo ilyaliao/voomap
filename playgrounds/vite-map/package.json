@@ -10,13 +10,13 @@
   },
   "dependencies": {
     "@voomap/map": "workspace:*",
-    "vue": "^3.5.13"
+    "vue": "catalog:frontend"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.2.1",
-    "@vue/tsconfig": "^0.7.0",
-    "typescript": "~5.7.3",
-    "vite": "^6.1.0",
-    "vue-tsc": "^2.2.0"
+    "@vitejs/plugin-vue": "catalog:build",
+    "@vue/tsconfig": "catalog:dev",
+    "typescript": "catalog:dev",
+    "vite": "catalog:build",
+    "vue-tsc": "catalog:dev"
   }
 }
