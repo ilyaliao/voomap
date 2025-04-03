@@ -11,3 +11,13 @@ export function createMarker(
     map,
   })
 }
+
+/**
+ * Create an info window instance
+ */
+export function createInfoWindow(
+  maps: typeof globalThis.google.maps,
+  options: google.maps.InfoWindowOptions,
+): google.maps.InfoWindow {
+  return new maps.InfoWindow(options)
+}

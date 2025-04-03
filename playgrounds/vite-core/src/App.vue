@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useGoogleMap, useInfoWindow, useMarker } from '@voomap/core'
-import { reactive, useTemplateRef } from 'vue'
+import { watchOnce } from '@vueuse/core'
+import { reactive, shallowRef, useTemplateRef, watch } from 'vue'
 
 const { VITE_GOOGLE_MAP_API_KEY } = import.meta.env
 
@@ -17,14 +18,29 @@ const { maps, map } = useGoogleMap(
   options,
 )
 
+const currentMarker = shallowRef<google.maps.Marker>()
+
 const { marker } = useMarker(
   maps,
   map,
   {
-    title: '1232321',
+    title: 'marker1',
     position: { lat: 25.0337, lng: 121.5636 },
   },
 )
+
+const { marker: marker2 } = useMarker(
+  maps,
+  map,
+  {
+    title: 'marker2',
+    position: { lat: 24.1233, lng: 121.5636 },
+  },
+)
+
+watchOnce(marker, () => {
+  currentMarker.value = marker.value
+})
 
 useInfoWindow(
   maps,
@@ -32,7 +48,7 @@ useInfoWindow(
   {
     position: { lat: 25.0337, lng: 121.5636 },
   },
-  marker,
+  currentMarker,
 )
 
 function zoomIn() {
@@ -47,6 +63,10 @@ function zoomOut() {
 
 function resetCenter() {
   options.center = { lat: 25.0855388, lng: 121.4791004 }
+}
+
+function changeMarker() {
+  currentMarker.value = marker2.value
 }
 
 function changeMarkerContent() {
@@ -66,6 +86,9 @@ function changeMarkerContent() {
     </button>
     <button @click="resetCenter">
       Reset Center
+    </button>
+    <button @click="changeMarker">
+      Change Marker
     </button>
     <button @click="changeMarkerContent">
       Change Marker Content

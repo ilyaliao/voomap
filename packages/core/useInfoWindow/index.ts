@@ -1,13 +1,21 @@
-import type { MaybeRefOrGetter, ShallowRef } from 'vue'
+import type { ComponentInternalInstance, MaybeRefOrGetter, ShallowRef } from 'vue'
 import type { UseInfoWindowReturn } from './types'
-import { tryOnScopeDispose } from '@vueuse/shared'
-import { shallowRef, toValue, watch } from 'vue'
+import { camelizeUnderscore, createInfoWindow } from '@voomap/shared'
+import { tryOnScopeDispose, watchImmediate } from '@vueuse/shared'
+import { getCurrentInstance, shallowRef, toValue, watch } from 'vue'
+import { infoWindowEmits } from './types'
 
 export function useInfoWindow(
   maps: ShallowRef<typeof globalThis.google.maps | undefined>,
   map: ShallowRef<google.maps.Map | undefined>,
+  /**
+   * InfoWindow Options
+   *
+   * @see https://developers.google.com/maps/documentation/javascript/reference/info-window?hl=zh-tw#InfoWindowOptions-Properties
+   */
   options: MaybeRefOrGetter<google.maps.InfoWindowOptions>,
-  marker: MaybeRefOrGetter<google.maps.Marker | undefined>,
+  marker?: MaybeRefOrGetter<google.maps.Marker | undefined>,
+  emit: ComponentInternalInstance['emit'] | undefined = getCurrentInstance()?.emit,
 ): UseInfoWindowReturn {
   const infoWindow = shallowRef<google.maps.InfoWindow | undefined>()
 
@@ -16,16 +24,32 @@ export function useInfoWindow(
     return _options?.content ?? toValue(marker)?.getTitle() ?? ''
   }
 
+  function bindEvents() {
+    if (!emit)
+      return
+
+    for (const event of infoWindowEmits) {
+      const kebabEvent = camelizeUnderscore(event)
+
+      infoWindow.value?.addListener(event, () => {
+        emit(kebabEvent, event)
+      })
+    }
+  }
+
   watch(
     [maps, map],
     ([newMaps, newMap]) => {
       if (!newMaps || !newMap)
         return
 
-      infoWindow.value = new newMaps.InfoWindow({
+      const _options = {
         ...toValue(options),
         content: getContent(),
-      })
+      }
+
+      infoWindow.value = createInfoWindow(newMaps, _options)
+      bindEvents()
     },
   )
 
@@ -63,12 +87,22 @@ export function useInfoWindow(
     infoWindow.value.setContent(getContent())
   }
 
-  watch(() => toValue(marker), (markerInstance) => {
+  const markerEvents = new Set<google.maps.MapsEventListener>()
+  watchImmediate(() => toValue(marker), (markerInstance) => {
     if (!markerInstance)
       return
 
-    markerInstance.addListener('click', open)
-    markerInstance.addListener('title_changed', changeInfoWindowContent)
+    if (markerEvents.size) {
+      for (const event of markerEvents) {
+        event.remove()
+      }
+
+      markerEvents.clear()
+    }
+
+    infoWindow.value?.setContent(getContent())
+    markerEvents.add(markerInstance.addListener('click', open))
+    markerEvents.add(markerInstance.addListener('title_changed', changeInfoWindowContent))
   })
 
   tryOnScopeDispose(() => {
