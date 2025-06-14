@@ -3,12 +3,16 @@ packages:
   - '!playgrounds'
 catalogs:
   build:
+    '@googlemaps/js-api-loader': ^1.16.8
     '@vitejs/plugin-vue': ^5.2.3
     '@vue.ts/complex-types': ^0.6.0
+    '@vueuse/core': ^13.0.0
+    '@vueuse/shared': ^13.0.0
     unbuild: ^3.3.1
     vite: ^6.2.4
     vite-plugin-dts: ^4.5.3
     vitepress: 1.0.0-beta.7
+    vue: ^3.5.13
     vue-component-type-helpers: ^2.2.0
   dev:
     '@antfu/eslint-config': ^4.11.0
@@ -25,15 +29,10 @@ catalogs:
     taze: ^18.5.0
     typescript: ^5.8.2
     vue-tsc: ^2.2.8
-  frontend:
-    '@googlemaps/js-api-loader': ^1.16.8
-    '@vueuse/core': ^13.0.0
-    '@vueuse/shared': ^13.0.0
-    vue: ^3.5.13
   types:
     '@types/fs-extra': ^11.0.4
     '@types/google.maps': ^3.58.1
-    '@types/node': ^22.14.0
+    '@types/node': ^24.0.1
 onlyBuiltDependencies:
   - pnpm
   - unbuild

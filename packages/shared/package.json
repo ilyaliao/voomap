@@ -36,14 +36,15 @@
   ],
   "source": "src/index.ts",
   "scripts": {
+    "typecheck": "vue-tsc --noEmit",
     "build": "unbuild",
     "dev": "unbuild --stub"
   },
   "peerDependencies": {
-    "vue": "catalog:frontend"
+    "vue": "catalog:build"
   },
   "dependencies": {
-    "@vueuse/shared": "catalog:frontend"
+    "@vueuse/shared": "catalog:build"
   },
   "devDependencies": {
     "@types/google.maps": "catalog:types"

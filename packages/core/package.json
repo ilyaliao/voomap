@@ -37,17 +37,18 @@
   ],
   "source": "src/index.ts",
   "scripts": {
+    "typecheck": "vue-tsc --noEmit",
     "build": "unbuild",
     "dev": "unbuild --stub"
   },
   "peerDependencies": {
-    "vue": "catalog:frontend"
+    "vue": "catalog:build"
   },
   "dependencies": {
-    "@googlemaps/js-api-loader": "catalog:frontend",
+    "@googlemaps/js-api-loader": "catalog:build",
     "@voomap/shared": "workspace:*",
-    "@vueuse/core": "catalog:frontend",
-    "@vueuse/shared": "catalog:frontend"
+    "@vueuse/core": "catalog:build",
+    "@vueuse/shared": "catalog:build"
   },
   "devDependencies": {
     "@types/google.maps": "catalog:types"

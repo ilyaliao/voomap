@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@voomap/map": "workspace:*",
-    "vue": "catalog:frontend"
+    "vue": "catalog:build"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "catalog:build",

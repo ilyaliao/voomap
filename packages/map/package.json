@@ -35,14 +35,15 @@
     "./dist"
   ],
   "scripts": {
+    "typecheck": "vue-tsc --noEmit",
     "build": "vite build",
     "dev": "vite build --watch"
   },
   "peerDependencies": {
-    "vue": "catalog:frontend"
+    "vue": "catalog:build"
   },
   "dependencies": {
-    "@googlemaps/js-api-loader": "catalog:frontend",
+    "@googlemaps/js-api-loader": "catalog:build",
     "@voomap/core": "workspace:*",
     "@voomap/shared": "workspace:*"
   },
@@ -53,7 +54,7 @@
     "@vue/tsconfig": "catalog:dev",
     "vite": "catalog:build",
     "vite-plugin-dts": "catalog:build",
-    "vue": "catalog:frontend",
+    "vue": "catalog:build",
     "vue-component-type-helpers": "catalog:build"
   }
 }
