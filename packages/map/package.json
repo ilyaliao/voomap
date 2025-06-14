@@ -19,25 +19,16 @@
     "google-map"
   ],
   "sideEffects": false,
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    }
-  },
-  "main": "./dist/index.cjs",
+  "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "typings": "./dist/index.d.ts",
   "files": [
-    "./LICENSE",
     "./dist"
   ],
   "scripts": {
     "typecheck": "vue-tsc --noEmit",
-    "build": "vite build",
-    "dev": "vite build --watch"
+    "build": "tsdown",
+    "watch": "tsdown --watch"
   },
   "peerDependencies": {
     "vue": "catalog:build"
@@ -45,15 +36,14 @@
   "dependencies": {
     "@googlemaps/js-api-loader": "catalog:build",
     "@voomap/core": "workspace:*",
-    "@voomap/shared": "workspace:*"
+    "@voomap/shared": "workspace:*",
+    "@vueuse/core": "catalog:build"
   },
   "devDependencies": {
     "@types/google.maps": "catalog:types",
     "@vitejs/plugin-vue": "catalog:build",
     "@vue.ts/complex-types": "catalog:build",
-    "@vue/tsconfig": "catalog:dev",
     "vite": "catalog:build",
-    "vite-plugin-dts": "catalog:build",
     "vue": "catalog:build",
     "vue-component-type-helpers": "catalog:build"
   }

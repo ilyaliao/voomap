@@ -1,5 +1,6 @@
 {
   "name": "@voomap/shared",
+  "type": "module",
   "version": "0.0.1",
   "description": "internal utils shared across @voomap packages",
   "author": "ilyaliao",
@@ -17,34 +18,20 @@
     "map",
     "google-map"
   ],
-  "exports": {
-    ".": "./dist/index.mjs"
-  },
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./dist/*",
-        "./dist/index.d.ts"
-      ]
-    }
-  },
+  "types": "./dist/index.d.mts",
   "files": [
-    "dist"
+    "./dist"
   ],
   "source": "src/index.ts",
   "scripts": {
     "typecheck": "vue-tsc --noEmit",
-    "build": "unbuild",
-    "dev": "unbuild --stub"
+    "build": "tsdown",
+    "watch": "tsdown --watch"
   },
   "peerDependencies": {
     "vue": "catalog:build"
-  },
-  "dependencies": {
-    "@vueuse/shared": "catalog:build"
   },
   "devDependencies": {
     "@types/google.maps": "catalog:types"

@@ -1,5 +1,6 @@
 {
   "name": "@voomap/core",
+  "type": "module",
   "version": "0.0.1",
   "description": "Google Maps with composables",
   "author": "ilyaliao",
@@ -18,28 +19,17 @@
     "composable",
     "google-map"
   ],
-  "exports": {
-    ".": "./dist/index.mjs"
-  },
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./dist/*",
-        "./dist/index.d.ts"
-      ]
-    }
-  },
+  "types": "./dist/index.d.mts",
   "files": [
-    "dist"
+    "./dist"
   ],
   "source": "src/index.ts",
   "scripts": {
     "typecheck": "vue-tsc --noEmit",
-    "build": "unbuild",
-    "dev": "unbuild --stub"
+    "build": "tsdown",
+    "watch": "tsdown --watch"
   },
   "peerDependencies": {
     "vue": "catalog:build"

@@ -1,0 +1,60 @@
+diff --git a/dist/index.cjs b/dist/index.cjs
+index e56bb0552fb26d5d262d7656d90ca469a77c4487..aa5c6e0aae11be6cc7f903e0aeebba1e67a4a9d5 100644
+--- a/dist/index.cjs
++++ b/dist/index.cjs
+@@ -64,22 +64,16 @@ class Printer {
+     const type = this.checker.getTypeAtLocation(node);
+     const properties = type.getProperties();
+     const parts = ["{"];
+-    let questionToken = "";
+-    if (ts__default.isMappedTypeNode(node)) {
+-      questionToken = node.questionToken?.getText() ?? "";
+-    }
++    const isMapped = ts__default.isMappedTypeNode(node);
+     for (const property of properties) {
++      const question = isMapped ? node.questionToken?.getText() ?? "" : property.flags & ts__default.SymbolFlags.Optional ? "?" : "";
+       const valueType = this.checker.getTypeOfSymbol(property);
+       const stringValueType = this.checker.typeToString(
+         this.getBaseType(valueType),
+         void 0,
+         ts__default.TypeFormatFlags.NoTruncation
+       );
+-      parts.push(
+-        `${this.checker.symbolToString(
+-          property
+-        )}${questionToken}: ${stringValueType}`
+-      );
++      parts.push(`${this.checker.symbolToString(property)}${question}: ${stringValueType}`);
+     }
+     parts.push("}");
+     return parts.join("\n");
+diff --git a/dist/index.mjs b/dist/index.mjs
+index b39f2c8afc2732e299fb1a49f0ff825930f8bfea..f8181ab7c3634c666f22617f4a91af38cda93e65 100644
+--- a/dist/index.mjs
++++ b/dist/index.mjs
+@@ -57,22 +57,16 @@ class Printer {
+     const type = this.checker.getTypeAtLocation(node);
+     const properties = type.getProperties();
+     const parts = ["{"];
+-    let questionToken = "";
+-    if (ts.isMappedTypeNode(node)) {
+-      questionToken = node.questionToken?.getText() ?? "";
+-    }
++    const isMapped = ts.isMappedTypeNode(node);
+     for (const property of properties) {
++      const question = isMapped ? node.questionToken?.getText() ?? "" : property.flags & ts.SymbolFlags.Optional ? "?" : "";
+       const valueType = this.checker.getTypeOfSymbol(property);
+       const stringValueType = this.checker.typeToString(
+         this.getBaseType(valueType),
+         void 0,
+         ts.TypeFormatFlags.NoTruncation
+       );
+-      parts.push(
+-        `${this.checker.symbolToString(
+-          property
+-        )}${questionToken}: ${stringValueType}`
+-      );
++      parts.push(`${this.checker.symbolToString(property)}${question}: ${stringValueType}`);
+     }
+     parts.push("}");
+     return parts.join("\n");

@@ -1,13 +1,30 @@
 import { resolve } from 'node:path'
-import vue from '@vitejs/plugin-vue'
+import Vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
 
-// https://vite.dev/config/
-export default defineConfig({
-  plugins: [vue()],
-  resolve: {
-    alias: {
-      '~': resolve(__dirname, 'src'),
+export default defineConfig(({ command }) => ({
+  plugins: [
+    Vue(),
+  ],
+  resolve: command === 'build'
+    ? {}
+    : {
+        alias: {
+          '@voomap/core': resolve(__dirname, '../../packages/core/index.ts'),
+          '@voomap/shared': resolve(__dirname, '../../packages/shared/index.ts'),
+        },
+      },
+  build: {
+    minify: false,
+    rollupOptions: {
+      output: {
+        manualChunks: (id) => {
+          if (id.includes('@voomap/'))
+            return 'voomap'
+          else
+            return 'vendor'
+        },
+      },
     },
   },
-})
+}))

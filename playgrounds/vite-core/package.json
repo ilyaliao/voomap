@@ -9,12 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@voomap/core": "workspace:*",
     "vue": "catalog:build"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "catalog:build",
-    "@vue/tsconfig": "catalog:dev",
     "typescript": "catalog:dev",
     "vite": "catalog:build",
     "vue-tsc": "catalog:dev"
