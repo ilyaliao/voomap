@@ -41,10 +41,7 @@
   },
   "devDependencies": {
     "@types/google.maps": "catalog:types",
-    "@vitejs/plugin-vue": "catalog:build",
     "@vue.ts/complex-types": "catalog:build",
-    "vite": "catalog:build",
-    "vue": "catalog:build",
     "vue-component-type-helpers": "catalog:build"
   }
 }

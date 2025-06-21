@@ -100,8 +100,8 @@ Voomap 提供兩種將 Google Maps 整合到您的 Vue 應用程式中的方式�
 
 ```vue [App.vue]
 <script setup lang="ts">
-import { GoogleMap } from "@voomap/map"
-import { ref } from "vue"
+import { GoogleMap } from '@voomap/map'
+import { ref } from 'vue'
 
 const { VITE_GOOGLE_MAP_API_KEY } = import.meta.env
 const zoom = ref(10)
@@ -124,8 +124,8 @@ const zoom = ref(10)
 
 ```vue [App.vue]
 <script setup lang="ts">
-import { GoogleMap, Marker } from "@voomap/map"
-import { ref } from "vue"
+import { GoogleMap, Marker } from '@voomap/map'
+import { ref } from 'vue'
 
 const { VITE_GOOGLE_MAP_API_KEY } = import.meta.env
 const zoom = ref(10)
@@ -152,8 +152,8 @@ const zoom = ref(10)
 
 ```vue [App.vue]
 <script setup lang="ts">
-import { GoogleMap, Marker } from "@voomap/map"
-import { ref } from "vue"
+import { GoogleMap, Marker } from '@voomap/map'
+import { ref } from 'vue'
 
 const { VITE_GOOGLE_MAP_API_KEY } = import.meta.env
 const zoom = ref(10)
@@ -169,10 +169,14 @@ function zoomOut() {
 
 <template>
   <div style="position: absolute; top: 0; left: 0; z-index: 1000">
-    <button @click="zoomIn">放大</button>
-    <button @click="zoomOut">縮小</button>
+    <button @click="zoomIn">
+      放大
+    </button>
+    <button @click="zoomOut">
+      縮小
+    </button>
   </div>
-  
+
   <div style="width: 100vw; height: 100dvh">
     <GoogleMap
       :api-key="VITE_GOOGLE_MAP_API_KEY"
@@ -281,10 +285,14 @@ function zoomOut() {
 
 <template>
   <div style="position: absolute; top: 0; left: 0; z-index: 1000">
-    <button @click="zoomIn">放大</button>
-    <button @click="zoomOut">縮小</button>
+    <button @click="zoomIn">
+      放大
+    </button>
+    <button @click="zoomOut">
+      縮小
+    </button>
   </div>
-  
+
   <div ref="el" style="width: 100vw; height: 100dvh" />
 </template>
 ```

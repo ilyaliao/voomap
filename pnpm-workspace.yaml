@@ -8,29 +8,29 @@ patchedDependencies:
 catalogs:
   build:
     '@googlemaps/js-api-loader': ^1.16.8
-    '@vitejs/plugin-vue': ^5.2.3
+    '@vitejs/plugin-vue': ^5.2.4
     '@vue.ts/complex-types': ^0.6.0
-    '@vueuse/core': ^13.0.0
-    '@vueuse/shared': ^13.0.0
-    tsdown: ^0.12.7
+    '@vueuse/core': ^13.4.0
+    '@vueuse/shared': ^13.4.0
+    tsdown: ^0.12.8
     unplugin-vue: ^6.2.0
     vite: npm:rolldown-vite@latest
-    vue: ^3.5.13
-    vue-component-type-helpers: ^2.2.0
+    vue: ^3.5.17
+    vue-component-type-helpers: ^2.2.10
 
   dev:
-    '@antfu/eslint-config': ^4.11.0
-    '@antfu/ni': ^23.3.1
-    bumpp: ^10.0.3
-    eslint: ^9.23.0
+    '@antfu/eslint-config': ^4.15.0
+    '@antfu/ni': ^25.0.0
+    bumpp: ^10.2.0
+    eslint: ^9.29.0
     esno: ^4.8.0
-    lint-staged: ^15.5.0
-    pnpm: ^10.7.1
+    lint-staged: ^16.1.2
+    pnpm: ^10.12.1
     rimraf: ^6.0.1
-    simple-git-hooks: ^2.12.1
-    taze: ^18.5.0
-    typescript: ^5.8.2
-    vue-tsc: ^2.2.8
+    simple-git-hooks: ^2.13.0
+    taze: ^19.1.0
+    typescript: ^5.8.3
+    vue-tsc: ^2.2.10
 
   docs:
     '@unocss/eslint-plugin': ^66.2.3
@@ -41,7 +41,7 @@ catalogs:
 
   types:
     '@types/google.maps': ^3.58.1
-    '@types/node': ^24.0.1
+    '@types/node': ^24.0.3
 
 onlyBuiltDependencies:
   - pnpm

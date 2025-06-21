@@ -54,13 +54,13 @@ Custom icon for the marker.
 
 ```vue
 <!-- String URL -->
-<Marker 
+<Marker
   :position="position"
   icon="/custom-marker.png"
 />
 
 <!-- Icon object -->
-<Marker 
+<Marker
   :position="position"
   :icon="{
     url: '/custom-marker.png',
@@ -135,7 +135,7 @@ Label to display on the marker.
 <Marker :position="position" label="A" />
 
 <!-- Label object -->
-<Marker 
+<Marker
   :position="position"
   :label="{
     text: 'A',
@@ -153,7 +153,7 @@ Label to display on the marker.
 Animation for the marker. Options: `google.maps.Animation.DROP`, `google.maps.Animation.BOUNCE`.
 
 ```vue
-<Marker 
+<Marker
   :position="position"
   :animation="google.maps.Animation.DROP"
 />
@@ -253,14 +253,14 @@ The Google Maps Marker instance.
 
 ```vue
 <script setup>
-import { ref, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 
 const markerRef = ref()
 
 onMounted(() => {
   // Access the marker instance
   const marker = markerRef.value.marker
-  
+
   // Use any Google Maps Marker method
   marker.setAnimation(google.maps.Animation.BOUNCE)
 })
@@ -289,16 +289,16 @@ Note: If both the default slot and the `title` prop are provided, the default sl
 
 ```vue
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
 import { GoogleMap, Marker } from '@voomap/map'
+import { reactive, ref } from 'vue'
 
 const markers = reactive([
-  { 
+  {
     id: 1,
     position: { lat: 25.0855388, lng: 121.4791004 },
     title: 'Taipei 101'
   },
-  { 
+  {
     id: 2,
     position: { lat: 25.0375167, lng: 121.5637 },
     title: 'National Palace Museum'
@@ -330,12 +330,12 @@ function handleDragEnd(marker, event) {
       :position="marker.position"
       :title="marker.title"
       :draggable="true"
-      :animation="selectedMarker?.id === marker.id 
-        ? google.maps.Animation.BOUNCE 
+      :animation="selectedMarker?.id === marker.id
+        ? google.maps.Animation.BOUNCE
         : null"
       @click="(e) => handleMarkerClick(marker, e)"
       @dragend="(e) => handleDragEnd(marker, e)"
     />
   </GoogleMap>
 </template>
-``` 
+```

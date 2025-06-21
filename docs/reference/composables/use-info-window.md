@@ -5,7 +5,7 @@ The `useInfoWindow` composable provides programmatic access to Google Maps InfoW
 ## Basic Usage
 
 ```typescript
-import { useGoogleMap, useMarker, useInfoWindow } from '@voomap/core'
+import { useGoogleMap, useInfoWindow, useMarker } from '@voomap/core'
 import { ref } from 'vue'
 
 const mapElement = ref<HTMLElement>()
@@ -178,8 +178,12 @@ setTimeout(() => {
 
 <template>
   <div>
-    <button @click="open">Open InfoWindow</button>
-    <button @click="close">Close InfoWindow</button>
+    <button @click="open">
+      Open InfoWindow
+    </button>
+    <button @click="close">
+      Close InfoWindow
+    </button>
     <div ref="mapElement" style="height: 400px;" />
   </div>
 </template>
@@ -189,7 +193,7 @@ setTimeout(() => {
 
 ```vue
 <script setup lang="ts">
-import { useGoogleMap, useMarker, useInfoWindow } from '@voomap/core'
+import { useGoogleMap, useInfoWindow, useMarker } from '@voomap/core'
 import { ref, watchOnce } from 'vue'
 
 const mapElement = ref<HTMLElement>()
@@ -231,8 +235,8 @@ const { infoWindow } = useInfoWindow(
 
 ```vue
 <script setup lang="ts">
-import { useGoogleMap, useMarker, useInfoWindow } from '@voomap/core'
-import { ref, computed, watchOnce } from 'vue'
+import { useGoogleMap, useInfoWindow, useMarker } from '@voomap/core'
+import { computed, ref, watchOnce } from 'vue'
 
 const mapElement = ref<HTMLElement>()
 const { maps, map } = useGoogleMap('YOUR_API_KEY', mapElement)
@@ -272,8 +276,10 @@ function updateContent() {
 
 <template>
   <div>
-    <button @click="updateContent">Update Content</button>
+    <button @click="updateContent">
+      Update Content
+    </button>
     <div ref="mapElement" style="height: 400px;" />
   </div>
 </template>
-``` 
+```

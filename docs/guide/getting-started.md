@@ -100,8 +100,8 @@ Here's a minimal example using components:
 
 ```vue [App.vue]
 <script setup lang="ts">
-import { GoogleMap } from "@voomap/map"
-import { ref } from "vue"
+import { GoogleMap } from '@voomap/map'
+import { ref } from 'vue'
 
 const { VITE_GOOGLE_MAP_API_KEY } = import.meta.env
 const zoom = ref(10)
@@ -124,8 +124,8 @@ Add markers with custom content using slots:
 
 ```vue [App.vue]
 <script setup lang="ts">
-import { GoogleMap, Marker } from "@voomap/map"
-import { ref } from "vue"
+import { GoogleMap, Marker } from '@voomap/map'
+import { ref } from 'vue'
 
 const { VITE_GOOGLE_MAP_API_KEY } = import.meta.env
 const zoom = ref(10)
@@ -152,8 +152,8 @@ Add controls to interact with your map:
 
 ```vue [App.vue]
 <script setup lang="ts">
-import { GoogleMap, Marker } from "@voomap/map"
-import { ref } from "vue"
+import { GoogleMap, Marker } from '@voomap/map'
+import { ref } from 'vue'
 
 const { VITE_GOOGLE_MAP_API_KEY } = import.meta.env
 const zoom = ref(10)
@@ -169,10 +169,14 @@ function zoomOut() {
 
 <template>
   <div style="position: absolute; top: 0; left: 0; z-index: 1000">
-    <button @click="zoomIn">Zoom In</button>
-    <button @click="zoomOut">Zoom Out</button>
+    <button @click="zoomIn">
+      Zoom In
+    </button>
+    <button @click="zoomOut">
+      Zoom Out
+    </button>
   </div>
-  
+
   <div style="width: 100vw; height: 100dvh">
     <GoogleMap
       :api-key="VITE_GOOGLE_MAP_API_KEY"
@@ -281,10 +285,14 @@ function zoomOut() {
 
 <template>
   <div style="position: absolute; top: 0; left: 0; z-index: 1000">
-    <button @click="zoomIn">Zoom In</button>
-    <button @click="zoomOut">Zoom Out</button>
+    <button @click="zoomIn">
+      Zoom In
+    </button>
+    <button @click="zoomOut">
+      Zoom Out
+    </button>
   </div>
-  
+
   <div ref="el" style="width: 100vw; height: 100dvh" />
 </template>
 ```

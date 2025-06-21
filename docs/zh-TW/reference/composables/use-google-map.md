@@ -136,7 +136,7 @@ const { map } = useGoogleMap(apiKey, mapElement, options, emit)
 ```vue
 <script setup lang="ts">
 import { useGoogleMap } from '@voomap/core'
-import { ref, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 
 const mapElement = ref<HTMLElement>()
 const apiKey = 'YOUR_API_KEY'
@@ -150,12 +150,13 @@ const { google, maps, map } = useGoogleMap(apiKey, mapElement, {
 onMounted(() => {
   // 等待地圖準備就緒
   watchEffect(() => {
-    if (!map.value || !maps.value) return
-    
+    if (!map.value || !maps.value)
+      return
+
     // 添加自訂控制
     const controlDiv = document.createElement('div')
     const control = new CustomControl(controlDiv, map.value)
-    
+
     controlDiv.index = 1
     map.value.controls[maps.value.ControlPosition.TOP_RIGHT].push(controlDiv)
   })
@@ -168,7 +169,7 @@ function CustomControl(controlDiv: HTMLElement, map: google.maps.Map) {
   controlUI.style.padding = '10px'
   controlUI.textContent = '置中地圖'
   controlDiv.appendChild(controlUI)
-  
+
   controlUI.addEventListener('click', () => {
     map.setCenter({ lat: 25.0855388, lng: 121.4791004 })
   })
@@ -193,8 +194,9 @@ const { maps, map } = useGoogleMap('YOUR_API_KEY', mapElement)
 const drawingManager = ref<google.maps.drawing.DrawingManager>()
 
 watchEffect(() => {
-  if (!maps.value || !map.value) return
-  
+  if (!maps.value || !map.value)
+    return
+
   drawingManager.value = new maps.value.drawing.DrawingManager({
     drawingMode: maps.value.drawing.OverlayType.MARKER,
     drawingControl: true,
@@ -209,7 +211,7 @@ watchEffect(() => {
       ]
     }
   })
-  
+
   drawingManager.value.setMap(map.value)
 })
 </script>
@@ -217,4 +219,4 @@ watchEffect(() => {
 <template>
   <div ref="mapElement" style="height: 400px;" />
 </template>
-``` 
+```

@@ -259,14 +259,14 @@ Google Maps 實例。
 
 ```vue
 <script setup>
-import { ref, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 
 const mapRef = ref()
 
 onMounted(() => {
   // 存取地圖實例
   const map = mapRef.value.map
-  
+
   // 使用任何 Google Maps API 方法
   map.panTo({ lat: 40.7128, lng: -74.0060 })
 })
@@ -294,8 +294,8 @@ onMounted(() => {
 
 ```vue
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
 import { GoogleMap, Marker } from '@voomap/map'
+import { reactive, ref } from 'vue'
 
 const center = reactive({
   lat: 25.0855388,
@@ -321,10 +321,10 @@ function handleZoomChange(zoom: number) {
     :zoom="12"
     :max-zoom="18"
     :min-zoom="5"
-    :map-type-id="'roadmap'"
+    map-type-id="roadmap"
     :clickable-icons="false"
     :fullscreen-control="true"
-    :language="'zh-TW'"
+    language="zh-TW"
     @click="handleMapClick"
     @zoom-changed="handleZoomChange"
   >
@@ -334,4 +334,4 @@ function handleZoomChange(zoom: number) {
     />
   </GoogleMap>
 </template>
-``` 
+```

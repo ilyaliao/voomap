@@ -119,7 +119,7 @@ The composable automatically removes the marker from the map and cleans up when 
 ```vue
 <script setup lang="ts">
 import { useGoogleMap, useMarker } from '@voomap/core'
-import { ref, reactive, computed } from 'vue'
+import { computed, reactive, ref } from 'vue'
 
 const mapElement = ref<HTMLElement>()
 const { maps, map } = useGoogleMap('YOUR_API_KEY', mapElement)
@@ -129,8 +129,8 @@ const markers = reactive([
   { id: 2, lat: 25.0375167, lng: 121.5637, title: 'Palace Museum' }
 ])
 
-const markerInstances = computed(() => 
-  markers.map(markerData => {
+const markerInstances = computed(() =>
+  markers.map((markerData) => {
     const { marker } = useMarker(maps, map, {
       position: { lat: markerData.lat, lng: markerData.lng },
       title: markerData.title,
@@ -162,56 +162,3 @@ function removeMarker(id: number) {
   </div>
 </template>
 ```
-
-## Example: Custom Marker with Events
-
-```vue
-<script setup lang="ts">
-import { useGoogleMap, useMarker } from '@voomap/core'
-import { ref } from 'vue'
-
-const mapElement = ref<HTMLElement>()
-const { maps, map } = useGoogleMap('YOUR_API_KEY', mapElement)
-
-const markerPosition = ref({ lat: 25.0855388, lng: 121.4791004 })
-
-const emit = defineEmits<{
-  'marker-click': [position: google.maps.LatLngLiteral]
-  'marker-moved': [newPosition: google.maps.LatLngLiteral]
-}>()
-
-const { marker } = useMarker(maps, map, {
-  position: markerPosition,
-  draggable: true,
-  title: 'Draggable Marker',
-  icon: {
-    url: '/custom-marker.png',
-    scaledSize: new google.maps.Size(40, 40)
-  }
-}, emit)
-
-function handleMarkerClick(event: google.maps.MapMouseEvent) {
-  const position = event.latLng?.toJSON()
-  if (position) {
-    emit('marker-click', position)
-  }
-}
-
-function handleMarkerMoved(event: google.maps.MapMouseEvent) {
-  const newPosition = event.latLng?.toJSON()
-  if (newPosition) {
-    markerPosition.value = newPosition
-    emit('marker-moved', newPosition)
-  }
-}
-</script>
-
-<template>
-  <div 
-    ref="mapElement" 
-    style="height: 400px;"
-    @marker-click="handleMarkerClick"
-    @marker-moved="handleMarkerMoved"
-  />
-</template>
-``` 

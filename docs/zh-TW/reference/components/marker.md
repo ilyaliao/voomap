@@ -54,13 +54,13 @@ const position = { lat: 25.0855388, lng: 121.4791004 }
 
 ```vue
 <!-- 字串 URL -->
-<Marker 
+<Marker
   :position="position"
   icon="/custom-marker.png"
 />
 
 <!-- Icon 物件 -->
-<Marker 
+<Marker
   :position="position"
   :icon="{
     url: '/custom-marker.png',
@@ -135,7 +135,7 @@ const position = { lat: 25.0855388, lng: 121.4791004 }
 <Marker :position="position" label="A" />
 
 <!-- 標籤物件 -->
-<Marker 
+<Marker
   :position="position"
   :label="{
     text: 'A',
@@ -153,7 +153,7 @@ const position = { lat: 25.0855388, lng: 121.4791004 }
 標記的動畫。選項：`google.maps.Animation.DROP`、`google.maps.Animation.BOUNCE`。
 
 ```vue
-<Marker 
+<Marker
   :position="position"
   :animation="google.maps.Animation.DROP"
 />
@@ -253,14 +253,14 @@ Google Maps Marker 實例。
 
 ```vue
 <script setup>
-import { ref, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 
 const markerRef = ref()
 
 onMounted(() => {
   // 存取標記實例
   const marker = markerRef.value.marker
-  
+
   // 使用任何 Google Maps Marker 方法
   marker.setAnimation(google.maps.Animation.BOUNCE)
 })
@@ -289,16 +289,16 @@ onMounted(() => {
 
 ```vue
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
 import { GoogleMap, Marker } from '@voomap/map'
+import { reactive, ref } from 'vue'
 
 const markers = reactive([
-  { 
+  {
     id: 1,
     position: { lat: 25.0855388, lng: 121.4791004 },
     title: '台北 101'
   },
-  { 
+  {
     id: 2,
     position: { lat: 25.0375167, lng: 121.5637 },
     title: '國立故宮博物院'
@@ -330,12 +330,12 @@ function handleDragEnd(marker, event) {
       :position="marker.position"
       :title="marker.title"
       :draggable="true"
-      :animation="selectedMarker?.id === marker.id 
-        ? google.maps.Animation.BOUNCE 
+      :animation="selectedMarker?.id === marker.id
+        ? google.maps.Animation.BOUNCE
         : null"
       @click="(e) => handleMarkerClick(marker, e)"
       @dragend="(e) => handleDragEnd(marker, e)"
     />
   </GoogleMap>
 </template>
-``` 
+```

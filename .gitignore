@@ -3,5 +3,6 @@ dist
 docs/.vitepress/cache/
 docs/.prettierrc.json
 .env
+.eslintcache
 
 .DS_STORE
