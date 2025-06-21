@@ -4,5 +4,6 @@ docs/.vitepress/cache/
 docs/.prettierrc.json
 .env
 .eslintcache
+.cursor
 
 .DS_STORE
