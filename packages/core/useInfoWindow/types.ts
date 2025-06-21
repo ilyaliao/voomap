@@ -1,5 +1,8 @@
 import type { ShallowRef } from 'vue'
 
+// reference https://github.com/vuejs/core/issues/8348
+export interface InfoWindowOptions extends /* @vue-ignore */ google.maps.InfoWindowOptions {}
+
 export interface UseInfoWindowReturn {
   /**
    * The info window instance

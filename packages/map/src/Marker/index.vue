@@ -1,13 +1,18 @@
 <script lang="ts">
-import type { MarkerEmits, MarkerEmitType, MarkerOptions } from '@voomap/core'
+import type { MarkerEmits, MarkerEmitType, MarkerOptions, UseMarkerReturn } from '@voomap/core'
+import { createContext, isTextVNode, isVNodeEmpty } from '@voomap/shared'
 import { injectGoogleMapContext } from '../GoogleMap/index.vue'
+
+interface MarkerContext extends UseMarkerReturn {}
+
+export const [injectMarkerContext, provideMarkerContext]
+= createContext<MarkerContext>('Marker')
 
 export type { MarkerEmits, MarkerEmitType, MarkerOptions }
 </script>
 
 <script setup lang="ts">
 import { useMarker } from '@voomap/core'
-import { isTextVNode, isVNodeEmpty } from '@voomap/shared'
 import { computed, useSlots } from 'vue'
 
 defineOptions({
@@ -41,6 +46,10 @@ const options = computed(() => ({
 const { marker } = useMarker(googleMapContext.maps, googleMapContext.map, options)
 
 defineExpose({
+  marker,
+})
+
+provideMarkerContext({
   marker,
 })
 </script>

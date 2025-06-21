@@ -45,9 +45,7 @@ watchOnce(marker, () => {
 useInfoWindow(
   maps,
   map,
-  {
-    position: { lat: 25.0337, lng: 121.5636 },
-  },
+  {},
   currentMarker,
 )
 

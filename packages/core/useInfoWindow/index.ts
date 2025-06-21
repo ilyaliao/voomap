@@ -5,6 +5,8 @@ import { tryOnScopeDispose, watchImmediate } from '@vueuse/shared'
 import { getCurrentInstance, shallowRef, toValue, watch } from 'vue'
 import { infoWindowEmits } from './types'
 
+export * from './types'
+
 export function useInfoWindow(
   maps: ShallowRef<typeof globalThis.google.maps | undefined>,
   map: ShallowRef<google.maps.Map | undefined>,
