@@ -17,9 +17,9 @@
     "clean": "rimraf --glob dist types \"packages/*/dist\"",
     "lint": "eslint --cache .",
     "lint:fix": "nr lint --fix",
-    "docs:dev": "vitepress dev docs --port 2222",
+    "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs --port 8080",
+    "docs:preview": "vitepress preview docs",
     "release": "bumpp -r && esno scripts/publish.ts"
   },
   "devDependencies": {
@@ -28,6 +28,7 @@
     "@googlemaps/js-api-loader": "catalog:build",
     "@types/google.maps": "catalog:types",
     "@types/node": "catalog:types",
+    "@unocss/eslint-plugin": "catalog:docs",
     "@vitejs/plugin-vue": "catalog:build",
     "@vue.ts/complex-types": "catalog:build",
     "@vueuse/core": "catalog:build",
@@ -42,9 +43,12 @@
     "taze": "catalog:dev",
     "tsdown": "catalog:build",
     "typescript": "catalog:dev",
+    "unocss": "catalog:docs",
     "unplugin-vue": "catalog:build",
     "vite": "catalog:build",
-    "vitepress": "catalog:build",
+    "vitepress": "catalog:docs",
+    "vitepress-plugin-group-icons": "catalog:docs",
+    "vitepress-plugin-llms": "catalog:docs",
     "vue": "catalog:build",
     "vue-component-type-helpers": "catalog:build",
     "vue-tsc": "catalog:dev"
