@@ -44,6 +44,7 @@ export function getLocaleConfig(lang: string) {
       items: [
         { text: t('GoogleMap'), link: '/google-map' },
         { text: t('Marker'), link: '/marker' },
+        { text: t('InfoWindow'), link: '/info-window' },
       ],
     },
     {
@@ -51,8 +52,8 @@ export function getLocaleConfig(lang: string) {
       base: `${urlPrefix}/reference/composables`,
       items: [
         { text: t('useGoogleMap'), link: '/use-google-map' },
-        { text: t('useInfoWindow'), link: '/use-info-window' },
         { text: t('useMarker'), link: '/use-marker' },
+        { text: t('useInfoWindow'), link: '/use-info-window' },
       ],
     },
   ]

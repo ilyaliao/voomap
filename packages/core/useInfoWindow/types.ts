@@ -19,7 +19,7 @@ export interface UseInfoWindowReturn {
 }
 
 /**
- * Marker Events
+ * InfoWindow Events
  *
  * @see https://developers.google.com/maps/documentation/javascript/reference/info-window?hl=zh-tw#InfoWindow-Events
  */
@@ -38,7 +38,7 @@ export const infoWindowEmits = [
 export type InfoWindowEmitType = (typeof infoWindowEmits)[number]
 
 /**
- * Marker Events
+ * InfoWindow Events
  *
  * @see https://developers.google.com/maps/documentation/javascript/reference/info-window?hl=zh-tw#InfoWindow-Events
  */

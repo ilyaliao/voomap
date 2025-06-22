@@ -33,8 +33,8 @@ export function useInfoWindow(
     for (const event of infoWindowEmits) {
       const kebabEvent = camelizeUnderscore(event)
 
-      infoWindow.value?.addListener(event, () => {
-        emit(kebabEvent, event)
+      infoWindow.value?.addListener(event, (...args: unknown[]) => {
+        emit(kebabEvent, ...(args as any[]))
       })
     }
   }

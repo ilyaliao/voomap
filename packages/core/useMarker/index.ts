@@ -25,8 +25,8 @@ export function useMarker(
     for (const event of markerEmits) {
       const kebabEvent = camelizeUnderscore(event)
 
-      marker.value?.addListener(event, () => {
-        emit(kebabEvent, event)
+      marker.value?.addListener(event, (...args: unknown[]) => {
+        emit(kebabEvent, ...(args as any[]))
       })
     }
   }

@@ -39,6 +39,10 @@ export default defineConfig({
   },
 
   markdown: {
+    theme: {
+      dark: 'vitesse-dark',
+      light: 'vitesse-light',
+    },
     config(md) {
       md.use(groupIconMdPlugin)
     },

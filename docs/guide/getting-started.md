@@ -230,8 +230,7 @@ Combine multiple composables for rich functionality:
 ```vue [App.vue]
 <script setup lang="ts">
 import { useGoogleMap, useInfoWindow, useMarker } from '@voomap/core'
-import { watchOnce } from '@vueuse/core'
-import { reactive, shallowRef, useTemplateRef } from 'vue'
+import { reactive, shallowRef, useTemplateRef, watch } from 'vue'
 
 const { VITE_GOOGLE_MAP_API_KEY } = import.meta.env
 
@@ -259,9 +258,11 @@ const { marker } = useMarker(
   },
 )
 
-watchOnce(marker, () => {
-  currentMarker.value = marker.value
-})
+watch(marker, (newMarker) => {
+  if (newMarker) {
+    currentMarker.value = newMarker
+  }
+}, { once: true })
 
 useInfoWindow(
   maps,

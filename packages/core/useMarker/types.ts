@@ -55,6 +55,7 @@ export interface MarkerEmits {
   cursorChanged: []
   dblclick: [event: google.maps.MapMouseEvent]
   drag: [event: google.maps.MapMouseEvent]
+  dragend: [event: google.maps.MapMouseEvent]
   draggableChanged: []
   dragstart: [event: google.maps.MapMouseEvent]
   flatChanged: []

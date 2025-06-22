@@ -97,4 +97,4 @@ This project is not yet complete, and I warmly welcome feature requests and impr
 
 ## 📄 License
 
-[MIT](./LICENSE) License © 2024-PRESENT [Ilya Liao](https://github.com/ilyaliao)
+[MIT](./LICENSE) License © 2025-PRESENT [IlyaL](https://github.com/ilyaliao)

@@ -12,6 +12,7 @@ export const zhCN = {
 
   // Components
   'GoogleMap': 'GoogleMap',
+  'InfoWindow': 'InfoWindow',
   'Marker': 'Marker',
 
   // Composables
