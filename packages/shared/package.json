@@ -1,7 +1,7 @@
 {
   "name": "@voomap/shared",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "internal utils shared across @voomap packages",
   "author": "ilyaliao",
   "license": "MIT",

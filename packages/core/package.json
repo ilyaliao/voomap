@@ -1,7 +1,7 @@
 {
   "name": "@voomap/core",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Google Maps with composables",
   "author": "ilyaliao",
   "license": "MIT",
