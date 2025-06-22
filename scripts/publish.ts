@@ -15,12 +15,16 @@ const command = 'pnpm -r publish --access public --no-git-checks'
 const readmePath = 'README.md'
 const mapReadmePath = 'packages/map/README.md'
 const coreReadmePath = 'packages/core/README.md'
+const sharedReadmePath = 'packages/shared/README.md'
 
 await copyFile(readmePath, mapReadmePath)
 await copyFile(readmePath, coreReadmePath)
+await copyFile(readmePath, sharedReadmePath)
 
 exec(`${command}`, { stdio: 'inherit' })
 
 await rm(mapReadmePath)
 await rm(coreReadmePath)
+await rm(sharedReadmePath)
+
 consola.success(`Published ${name} v${version}`)
