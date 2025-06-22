@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useGoogleMap, useInfoWindow, useMarker } from '@voomap/core'
 import { watchOnce } from '@vueuse/core'
-import { reactive, shallowRef, useTemplateRef } from 'vue'
+import { reactive, ref, shallowRef, useTemplateRef } from 'vue'
 
 const { VITE_GOOGLE_MAP_API_KEY } = import.meta.env
 
@@ -24,8 +24,8 @@ const { marker } = useMarker(
   maps,
   map,
   {
-    title: 'marker1',
-    position: { lat: 25.0337, lng: 121.5636 },
+    title: 'Marker1',
+    position: { lat: 25.0855388, lng: 121.4791004 },
   },
 )
 
@@ -33,7 +33,7 @@ const { marker: marker2 } = useMarker(
   maps,
   map,
   {
-    title: 'marker2',
+    title: 'Marker2',
     position: { lat: 24.1233, lng: 121.5636 },
   },
 )
@@ -63,14 +63,16 @@ function resetCenter() {
   options.center = { lat: 25.0855388, lng: 121.4791004 }
 }
 
+const isMarker1 = ref(true)
 function changeMarker() {
-  currentMarker.value = marker2.value
+  currentMarker.value = isMarker1.value ? marker2.value : marker.value
+  isMarker1.value = !isMarker1.value
 }
 
 function changeMarkerContent() {
   const texts = ['Hello', 'Good Morning', 'Good Afternoon', 'Good Evening', 'Goodbye']
   const randomText = texts[Math.floor(Math.random() * texts.length)]
-  marker.value?.setTitle(randomText)
+  currentMarker.value?.setTitle(randomText)
 }
 </script>
 

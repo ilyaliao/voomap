@@ -2,7 +2,7 @@ import type { MaybeComputedElementRef } from '@vueuse/core'
 import type { ComponentInternalInstance, MaybeRefOrGetter } from 'vue'
 import type { MapOptions, UseGoogleMapReturn } from './types'
 import { camelizeUnderscore } from '@voomap/shared'
-import { unrefElement } from '@vueuse/core'
+import { cloneFnJSON, unrefElement } from '@vueuse/core'
 import { tryOnScopeDispose, watchDeep } from '@vueuse/shared'
 import { computed, getCurrentInstance, shallowRef, toValue, watch } from 'vue'
 import { useMap } from '../useMap'
@@ -23,7 +23,7 @@ export function useGoogleMap(
   const maps = shallowRef<typeof globalThis.google.maps>()
   const map = shallowRef<google.maps.Map>()
 
-  const options = computed(() => toValue(defaultOptions))
+  const options = computed(() => cloneFnJSON(toValue(defaultOptions)))
 
   async function initMap(element: HTMLElement) {
     const { loader } = useMap(apiKey, options.value.language)
@@ -81,7 +81,7 @@ export function useGoogleMap(
     }
 
     const { zoom, center, ...otherOptions } = toValue(options)
-    map.value?.setOptions(otherOptions)
+    map.value?.setOptions({ ...otherOptions })
   })
 
   tryOnScopeDispose(() => {

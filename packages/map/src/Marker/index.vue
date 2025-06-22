@@ -19,13 +19,7 @@ defineOptions({
   inheritAttrs: false,
 })
 
-const props = withDefaults(
-  defineProps<MarkerOptions>(),
-  {
-    opacity: 1,
-    visible: true,
-  },
-)
+const props = defineProps<MarkerOptions>()
 
 defineEmits<MarkerEmits>()
 

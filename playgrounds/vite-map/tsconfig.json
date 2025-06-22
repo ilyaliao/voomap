@@ -20,10 +20,5 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
-  },
-  "exclude": [
-    "dist",
-    "node_modules",
-    "eslint.config.js"
-  ]
+  }
 }

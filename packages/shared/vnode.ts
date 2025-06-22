@@ -7,7 +7,7 @@ export function isVNodeEmpty(
   return (
     !vnodes
     || (Array.isArray(vnodes)
-      ? vnodes.some(vnode => vnode.type === Comment)
+      ? vnodes.every(vnode => vnode.type === Comment)
       : vnodes.type === Comment)
   )
 }

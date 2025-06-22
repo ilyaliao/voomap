@@ -4,6 +4,7 @@ packages:
 
 patchedDependencies:
   '@vue.ts/complex-types': patches/@vue.ts__complex-types.patch
+  '@vue/runtime-core': patches/@vue__runtime-core.patch
 
 catalogs:
   build:
@@ -20,11 +21,11 @@ catalogs:
 
   dev:
     '@antfu/eslint-config': ^4.15.0
-    '@antfu/ni': ^25.0.0
     bumpp: ^10.2.0
     eslint: ^9.29.0
     esno: ^4.8.0
     lint-staged: ^16.1.2
+    npm-run-all2: ^8.0.4
     pnpm: ^10.12.1
     rimraf: ^6.0.1
     simple-git-hooks: ^2.13.0

@@ -1,21 +1,20 @@
 <script setup lang="ts">
-import type { ComponentExposed } from 'vue-component-type-helpers'
 import { GoogleMap, InfoWindow, Marker } from '@voomap/map'
-import { ref, useTemplateRef } from 'vue'
+import { reactive } from 'vue'
 
 const { VITE_GOOGLE_MAP_API_KEY } = import.meta.env
 
-const zoom = ref(10)
-
-const markerRef = useTemplateRef<ComponentExposed<typeof Marker>>('markerRef')
-const infoWindowRef = useTemplateRef<ComponentExposed<typeof InfoWindow>>('infoWindowRef')
+const googleMapOptions = reactive({
+  zoom: 10,
+  center: { lat: 25.0855388, lng: 121.4791004 },
+})
 
 function zoomIn() {
-  zoom.value++
+  googleMapOptions.zoom++
 }
 
 function zoomOut() {
-  zoom.value--
+  googleMapOptions.zoom--
 }
 </script>
 
@@ -31,17 +30,19 @@ function zoomOut() {
   <GoogleMap
     style="width: 100vw; height: 100dvh"
     :api-key="VITE_GOOGLE_MAP_API_KEY"
-    :zoom
-    @zoom-changed="zoom = $event"
+    :="googleMapOptions"
   >
     <Marker
-      ref="markerRef"
+      title="Marker1"
       :position="{ lat: 25.0855388, lng: 121.4791004 }"
     >
-      <InfoWindow
-        ref="infoWindowRef"
-      >
-        Hello I'm Marker
+      <InfoWindow />
+    </Marker>
+    <Marker
+      :position="{ lat: 24.1233, lng: 121.5636 }"
+    >
+      <InfoWindow>
+        Marker2
       </InfoWindow>
     </Marker>
   </GoogleMap>

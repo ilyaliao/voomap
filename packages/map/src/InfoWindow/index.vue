@@ -15,12 +15,7 @@ defineOptions({
   inheritAttrs: false,
 })
 
-const props = withDefaults(
-  defineProps<InfoWindowOptions>(),
-  {
-    content: '',
-  },
-)
+const props = defineProps<InfoWindowOptions>()
 
 defineEmits<InfoWindowEmits>()
 
@@ -35,7 +30,7 @@ const content = computed(() =>
     : props.content,
 )
 
-const infoWindowOptions = computed(() => ({
+const options = computed(() => ({
   ...props,
   content: content.value,
 }))
@@ -43,7 +38,7 @@ const infoWindowOptions = computed(() => ({
 const { infoWindow, open, close } = useInfoWindow(
   googleMapContext.maps,
   googleMapContext.map,
-  infoWindowOptions,
+  options,
   markerContext.marker,
 )
 

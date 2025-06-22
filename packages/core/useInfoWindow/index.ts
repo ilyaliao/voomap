@@ -103,6 +103,7 @@ export function useInfoWindow(
     }
 
     infoWindow.value?.setContent(getContent())
+    infoWindow.value?.setPosition(markerInstance.getPosition())
     markerEvents.add(markerInstance.addListener('click', open))
     markerEvents.add(markerInstance.addListener('title_changed', changeInfoWindowContent))
   })

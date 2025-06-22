@@ -12,34 +12,15 @@ export type { GoogleMapEmits, GoogleMapEmitType, MapOptions }
 
 <script setup lang="ts">
 import { useGoogleMap } from '@voomap/core'
-import { reactiveOmit } from '@vueuse/core'
 import { shallowRef } from 'vue'
 
-const props = withDefaults(
-  defineProps<{ apiKey: string } & MapOptions>(),
-  {
-    center: () => ({ lat: 25.0855388, lng: 121.4791004 }),
-    clickableIcons: true,
-    draggable: true,
-    fullscreenControl: true,
-    gestureHandling: 'auto',
-    isFractionalZoomEnabled: true,
-    maxZoom: 15,
-    minZoom: 8,
-    scaleControl: true,
-    scrollwheel: true,
-    zoom: 11,
-    zoomControl: true,
-    language: 'en',
-  },
-)
+const { apiKey, ...options } = defineProps<{ apiKey: string } & MapOptions>()
 
 defineEmits<GoogleMapEmits>()
 
 const mapRef = shallowRef<HTMLDivElement>()
 
-const defaultOptions = reactiveOmit(props, (val, key) => val == null || key === 'apiKey')
-const { google, maps, map } = useGoogleMap(props.apiKey, mapRef, defaultOptions)
+const { google, maps, map } = useGoogleMap(apiKey, mapRef, options)
 
 defineExpose({
   google,

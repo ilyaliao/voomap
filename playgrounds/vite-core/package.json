@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc -b && vite build",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -14,7 +14,6 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "catalog:build",
     "typescript": "catalog:dev",
-    "vite": "catalog:build",
-    "vue-tsc": "catalog:dev"
+    "vite": "catalog:build"
   }
 }
