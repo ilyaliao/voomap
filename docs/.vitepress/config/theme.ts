@@ -9,19 +9,16 @@ export function getLocaleConfig(lang: string) {
   const description = t('Vue 3 Google Maps Components')
   const titleTemplate = `:title - ${description}`
 
-  const docsLink = `https://voomap.vercel.app/`
-  const ogImage = `${docsLink}og-image.png`
+  const docsLink = `https://voomap.zeabur.app/`
 
   const head: HeadConfig[] = [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/voomap.svg' }],
     ['meta', { name: 'theme-color', content: '#4285f4' }],
     ['meta', { property: 'og:title', content: title }],
     ['meta', { property: 'og:description', content: description }],
-    ['meta', { property: 'og:image', content: ogImage }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:url', content: docsLink }],
     ['meta', { property: 'twitter:card', content: 'summary_large_image' }],
-    ['meta', { property: 'twitter:image', content: ogImage }],
   ]
 
   const nav: DefaultTheme.NavItem[] = [
