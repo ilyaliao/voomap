@@ -1,9 +1,10 @@
 {
   "name": "@voomap/core",
+  "type": "module",
   "version": "0.0.1",
-  "description": "Google Maps with Composition API",
+  "description": "Google Maps with composables",
   "author": "ilyaliao",
-  "license": "ISC",
+  "license": "MIT",
   "funding": "https://github.com/ilyaliao",
   "homepage": "https://github.com/ilyaliao/voomap#readme",
   "repository": {
@@ -15,29 +16,31 @@
     "vue3",
     "composition-api",
     "map",
+    "composable",
     "google-map"
   ],
-  "sideEffects": false,
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.cjs.js"
-    }
-  },
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
   "files": [
-    "dist"
+    "./dist"
   ],
   "source": "src/index.ts",
   "scripts": {
-    "dev": "pnpm build:rollup -w",
-    "clean": "rimraf dist",
-    "build": "vite build --config ../../scripts/build-core.ts"
+    "typecheck": "vue-tsc --noEmit",
+    "build": "tsdown",
+    "watch": "tsdown --watch"
+  },
+  "peerDependencies": {
+    "vue": "catalog:build"
   },
   "dependencies": {
-    "@googlemaps/js-api-loader": "^1.16.6"
+    "@googlemaps/js-api-loader": "catalog:build",
+    "@voomap/shared": "workspace:*",
+    "@vueuse/core": "catalog:build",
+    "@vueuse/shared": "catalog:build"
+  },
+  "devDependencies": {
+    "@types/google.maps": "catalog:types"
   }
 }

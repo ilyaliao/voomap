@@ -1,8 +1,7 @@
-import DefaultTheme from 'vitepress/theme';
+import DefaultTheme from 'vitepress/theme'
 
-import './styles/vars.css';
-import './styles/main.css';
+import './custom.css'
+import 'virtual:group-icons.css'
+import 'uno.css'
 
-export default {
-  ...DefaultTheme,
-};
+export default DefaultTheme

@@ -1,13 +1,24 @@
 {
-  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "sourceMap": true,
-    "useDefineForClassFields": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "allowJs": true,
+    "target": "esnext",
+    "jsx": "preserve",
+    "lib": ["esnext", "dom"],
+    "baseUrl": ".",
+    "module": "esnext",
+    "moduleResolution": "node",
     "paths": {
-      "@/*": ["./packages/map/src/*"]
-    }
-  }
+      "~/*": ["src/*"]
+    },
+    "resolveJsonModule": true,
+    "types": ["node", "google.maps"],
+    "strict": true,
+    "declaration": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "src/**/*",
+    "src/**/*.ts",
+    "src/**/*.vue"
+  ]
 }

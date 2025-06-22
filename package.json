@@ -1,55 +1,62 @@
 {
   "name": "@voomap/monorepo",
+  "type": "module",
   "version": "0.0.1",
   "private": true,
-  "packageManager": "pnpm@8.15.6",
+  "packageManager": "pnpm@10.12.1",
   "scripts": {
-    "taze": "taze major -wIr",
-    "build": "pnpm --filter './packages/**' build",
+    "up": "taze major -wIr",
+    "typecheck": "pnpm -r typecheck",
+    "watch": "pnpm -r --parallel watch",
+    "build": "pnpm -r build",
     "build:map": "pnpm --filter @voomap/map build",
     "build:core": "pnpm --filter @voomap/core build",
+    "play": "npm-run-all --parallel play:core play:map",
+    "play:core": "pnpm -C playgrounds/vite-core dev",
+    "play:map": "pnpm -C playgrounds/vite-map dev",
     "clean": "rimraf --glob dist types \"packages/*/dist\"",
-    "lint": "eslint './packages/**/*.{ts,vue}'",
-    "lint:all": "eslint .",
+    "lint": "eslint --cache .",
     "lint:fix": "pnpm lint --fix",
-    "docs:dev": "vitepress dev docs --port 2222",
+    "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs --port 8080",
+    "docs:preview": "vitepress preview docs",
     "release": "bumpp -r && esno scripts/publish.ts"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.12.1",
-    "@types/fs-extra": "^11.0.4",
-    "@types/node": "^20.12.4",
-    "@vitejs/plugin-vue": "^5.0.4",
-    "bumpp": "^9.4.0",
-    "consola": "^3.2.3",
-    "eslint": "^8.57.0",
-    "esno": "^4.7.0",
-    "fs-extra": "^11.2.0",
-    "git-cz": "^4.9.0",
-    "husky": "^9.0.11",
-    "lint-staged": "^15.2.2",
-    "pnpm": "^8.15.6",
-    "rimraf": "^5.0.5",
-    "taze": "^0.13.3",
-    "typescript": "^5.4.3",
-    "unplugin-vue-macros": "^2.9.0",
-    "vite": "^5.2.8",
-    "vite-plugin-dts": "^3.8.1",
-    "vite-plugin-replace": "^0.1.1",
-    "vite-plugin-style-inject": "^0.0.1",
-    "vitepress": "1.0.0-beta.7",
-    "vue": "^3.4.21"
+    "@antfu/eslint-config": "catalog:dev",
+    "@googlemaps/js-api-loader": "catalog:build",
+    "@types/google.maps": "catalog:types",
+    "@types/node": "catalog:types",
+    "@unocss/eslint-plugin": "catalog:docs",
+    "@vitejs/plugin-vue": "catalog:build",
+    "@vue.ts/complex-types": "catalog:build",
+    "@vueuse/core": "catalog:build",
+    "@vueuse/shared": "catalog:build",
+    "bumpp": "catalog:dev",
+    "eslint": "catalog:dev",
+    "esno": "catalog:dev",
+    "lint-staged": "catalog:dev",
+    "npm-run-all2": "catalog:dev",
+    "pnpm": "catalog:dev",
+    "rimraf": "catalog:dev",
+    "simple-git-hooks": "catalog:dev",
+    "taze": "catalog:dev",
+    "tsdown": "catalog:build",
+    "typescript": "catalog:dev",
+    "unocss": "catalog:docs",
+    "unplugin-vue": "catalog:build",
+    "vite": "catalog:build",
+    "vitepress": "catalog:docs",
+    "vitepress-plugin-group-icons": "catalog:docs",
+    "vitepress-plugin-llms": "catalog:docs",
+    "vue": "catalog:build",
+    "vue-component-type-helpers": "catalog:build",
+    "vue-tsc": "catalog:dev"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
   },
   "lint-staged": {
-    "{packages}/**/*.{ts,vue}": [
-      "pnpm lint"
-    ]
+    "*": "eslint --fix"
   }
 }

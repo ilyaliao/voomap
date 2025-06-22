@@ -1,0 +1,39 @@
+{
+  "name": "@voomap/shared",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "internal utils shared across @voomap packages",
+  "author": "ilyaliao",
+  "license": "MIT",
+  "funding": "https://github.com/ilyaliao",
+  "homepage": "https://github.com/ilyaliao/voomap#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ilyaliao/voomap"
+  },
+  "keywords": [
+    "voomap",
+    "vue3",
+    "composition-api",
+    "map",
+    "google-map"
+  ],
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "files": [
+    "./dist"
+  ],
+  "source": "src/index.ts",
+  "scripts": {
+    "typecheck": "vue-tsc --noEmit",
+    "build": "tsdown",
+    "watch": "tsdown --watch"
+  },
+  "peerDependencies": {
+    "vue": "catalog:build"
+  },
+  "devDependencies": {
+    "@types/google.maps": "catalog:types"
+  }
+}

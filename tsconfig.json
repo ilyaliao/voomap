@@ -1,7 +1,37 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.base.json" },
-    { "path": "./tsconfig.vite.json" }
+  "compilerOptions": {
+    "target": "esnext",
+    "jsx": "preserve",
+    "lib": ["esnext", "dom"],
+    "baseUrl": ".",
+    "module": "esnext",
+    "moduleResolution": "Bundler",
+    "paths": {
+      "@voomap/core": ["./packages/core/index.ts"],
+      "@voomap/core/*": ["./packages/core/*"],
+      "@voomap/map": ["./packages/map/src/index.ts"],
+      "@voomap/map/*": ["./packages/map/src/*"],
+      "@voomap/shared": ["./packages/shared/index.ts"],
+      "@voomap/shared/*": ["./packages/shared/*"]
+    },
+    "resolveJsonModule": true,
+    "types": [
+      "node",
+      "vite/client",
+      "google.maps"
+    ],
+    "strict": true,
+    "strictNullChecks": true,
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "packages"
+  ],
+  "exclude": [
+    "**/dist",
+    "node_modules"
   ]
 }

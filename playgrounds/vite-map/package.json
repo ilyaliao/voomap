@@ -1,0 +1,19 @@
+{
+  "name": "vite-map",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "catalog:build"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "catalog:build",
+    "typescript": "catalog:dev",
+    "vite": "catalog:build"
+  }
+}
