@@ -33,6 +33,7 @@
     "@vueuse/core": "catalog:build",
     "@vueuse/shared": "catalog:build",
     "bumpp": "catalog:dev",
+    "consola": "catalog:build",
     "eslint": "catalog:dev",
     "esno": "catalog:dev",
     "lint-staged": "catalog:dev",

@@ -13,6 +13,7 @@ catalogs:
     '@vue.ts/complex-types': ^0.6.0
     '@vueuse/core': ^13.4.0
     '@vueuse/shared': ^13.4.0
+    consola: ^3.4.2
     tsdown: ^0.12.8
     unplugin-vue: ^6.2.0
     vite: npm:rolldown-vite@latest

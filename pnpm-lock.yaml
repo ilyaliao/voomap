@@ -21,6 +21,9 @@ catalogs:
     '@vueuse/shared':
       specifier: ^13.4.0
       version: 13.4.0
+    consola:
+      specifier: ^3.4.2
+      version: 3.4.2
     tsdown:
       specifier: ^0.12.8
       version: 0.12.8
@@ -139,6 +142,9 @@ importers:
       bumpp:
         specifier: catalog:dev
         version: 10.2.0
+      consola:
+        specifier: catalog:build
+        version: 3.4.2
       eslint:
         specifier: catalog:dev
         version: 9.29.0(jiti@2.4.2)
@@ -2050,10 +2056,6 @@ packages:
 
   confbox@0.2.2:
     resolution: {integrity: sha512-1NB+BKqhtNipMsov4xI/NnhCKp9XG9NamYp5PVm9klAT0fsrNPjaFICsCFhNhwZJKNh7zB/3q8qXz0E9oaMNtQ==}
-
-  consola@3.4.0:
-    resolution: {integrity: sha512-EiPU8G6dQG0GFHNR8ljnZFki/8a+cQwEQ+7wpxdChl02Q8HXlwEZWD5lqAF8vC2sEC3Tehr8hy7vErz88LHyUA==}
-    engines: {node: ^14.18.0 || >=16.10.0}
 
   consola@3.4.2:
     resolution: {integrity: sha512-5IKcdX0nnYavi6G7TtOhwkYzyjfJlatbjMjuLSfE2kYT5pMDOilZ4OvMhi637CcDICTmz3wARPoyhqyX1Y+XvA==}
@@ -4839,7 +4841,7 @@ snapshots:
   '@nuxt/kit@3.15.4':
     dependencies:
       c12: 2.0.1
-      consola: 3.4.0
+      consola: 3.4.2
       defu: 6.1.4
       destr: 2.0.3
       globby: 14.1.0
@@ -5825,7 +5827,7 @@ snapshots:
 
   citty@0.1.6:
     dependencies:
-      consola: 3.4.0
+      consola: 3.4.2
 
   clean-regexp@1.0.0:
     dependencies:
@@ -5869,8 +5871,6 @@ snapshots:
   confbox@0.2.1: {}
 
   confbox@0.2.2: {}
-
-  consola@3.4.0: {}
 
   consola@3.4.2: {}
 
@@ -6477,7 +6477,7 @@ snapshots:
   giget@1.2.3:
     dependencies:
       citty: 0.1.6
-      consola: 3.4.0
+      consola: 3.4.2
       defu: 6.1.4
       node-fetch-native: 1.6.4
       nypm: 0.3.8
@@ -7241,7 +7241,7 @@ snapshots:
   nypm@0.3.8:
     dependencies:
       citty: 0.1.6
-      consola: 3.4.0
+      consola: 3.4.2
       execa: 8.0.1
       pathe: 1.1.2
       ufo: 1.5.4
