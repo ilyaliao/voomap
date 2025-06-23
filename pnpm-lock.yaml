@@ -104,9 +104,6 @@ patchedDependencies:
   '@vue.ts/complex-types':
     hash: 952dc5343d094b53a6d993b52dad76e568d487f1d25e1da97486e04e68166807
     path: patches/@vue.ts__complex-types.patch
-  '@vue/runtime-core':
-    hash: c3452568813a2eaa44ee3d609183661a68f4be84b2369852db9a8909ec02ed88
-    path: patches/@vue__runtime-core.patch
 
 importers:
 
@@ -5560,7 +5557,7 @@ snapshots:
     dependencies:
       '@vue/shared': 3.5.17
 
-  '@vue/runtime-core@3.5.17(patch_hash=c3452568813a2eaa44ee3d609183661a68f4be84b2369852db9a8909ec02ed88)':
+  '@vue/runtime-core@3.5.17':
     dependencies:
       '@vue/reactivity': 3.5.17
       '@vue/shared': 3.5.17
@@ -5568,7 +5565,7 @@ snapshots:
   '@vue/runtime-dom@3.5.17':
     dependencies:
       '@vue/reactivity': 3.5.17
-      '@vue/runtime-core': 3.5.17(patch_hash=c3452568813a2eaa44ee3d609183661a68f4be84b2369852db9a8909ec02ed88)
+      '@vue/runtime-core': 3.5.17
       '@vue/shared': 3.5.17
       csstype: 3.1.3
 

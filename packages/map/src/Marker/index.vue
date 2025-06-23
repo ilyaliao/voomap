@@ -19,7 +19,23 @@ defineOptions({
   inheritAttrs: false,
 })
 
-const props = defineProps<MarkerOptions>()
+const props = withDefaults(defineProps<MarkerOptions>(), {
+  anchorPoint: undefined,
+  animation: null,
+  clickable: true,
+  collisionBehavior: null,
+  crossOnDrag: true,
+  cursor: 'pointer',
+  draggable: false,
+  icon: undefined,
+  label: null,
+  map: undefined,
+  opacity: 1,
+  optimized: undefined,
+  shape: undefined,
+  visible: true,
+  zIndex: undefined,
+})
 
 defineEmits<MarkerEmits>()
 

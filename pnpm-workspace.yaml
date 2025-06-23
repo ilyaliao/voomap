@@ -4,7 +4,6 @@ packages:
 
 patchedDependencies:
   '@vue.ts/complex-types': patches/@vue.ts__complex-types.patch
-  '@vue/runtime-core': patches/@vue__runtime-core.patch
 
 catalogs:
   build:

@@ -15,7 +15,17 @@ defineOptions({
   inheritAttrs: false,
 })
 
-const props = defineProps<InfoWindowOptions>()
+const props = withDefaults(defineProps<InfoWindowOptions>(), {
+  ariaLabel: undefined,
+  disableAutoPan: false,
+  headerContent: undefined,
+  headerDisabled: undefined,
+  maxWidth: undefined,
+  minWidth: undefined,
+  pixelOffset: undefined,
+  position: undefined,
+  zIndex: undefined,
+})
 
 defineEmits<InfoWindowEmits>()
 
