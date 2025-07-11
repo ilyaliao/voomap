@@ -95,6 +95,14 @@ Refer to [documentations](https://voomap.zeabur.app/) for more details.
 
 This project is not yet complete, and I warmly welcome feature requests and improvement suggestions. You can create an issue to initiate a discussion with me!
 
+## 🌸 Thanks
+
+This project is heavily inspired by the following awesome projects.
+
+- [vueuse](https://github.com/vueuse/vueuse)
+- [inocan-group/vue3-google-map](https://github.com/inocan-group/vue3-google-map)
+- [unovue/reka-ui](https://github.com/unovue/reka-ui)
+
 ## 📄 License
 
 [MIT](./LICENSE) License © 2025-PRESENT [IlyaL](https://github.com/ilyaliao)
