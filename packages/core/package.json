@@ -37,8 +37,8 @@
   "dependencies": {
     "@googlemaps/js-api-loader": "catalog:build",
     "@voomap/shared": "workspace:*",
-    "@vueuse/core": "catalog:build",
-    "@vueuse/shared": "catalog:build"
+    "@vueuse/core": "catalog:deps",
+    "@vueuse/shared": "catalog:deps"
   },
   "devDependencies": {
     "@types/google.maps": "catalog:types"
