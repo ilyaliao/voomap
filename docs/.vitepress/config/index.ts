@@ -11,6 +11,9 @@ export default defineConfig({
 
   lastUpdated: true,
   cleanUrls: true,
+  sitemap: {
+    hostname: 'https://voomap.ilyal.me',
+  },
   themeConfig: {
     search: {
       provider: 'local',

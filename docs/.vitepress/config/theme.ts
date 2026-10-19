@@ -9,7 +9,7 @@ export function getLocaleConfig(lang: string) {
   const description = t('Vue 3 Google Maps Components')
   const titleTemplate = `:title - ${description}`
 
-  const docsLink = `https://voomap.zeabur.app/`
+  const docsLink = `https://voomap.ilyal.me/`
 
   const head: HeadConfig[] = [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/voomap.svg' }],
