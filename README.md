@@ -1,7 +1,7 @@
 <br>
 <p align="center">
-<a href="https://voomap.zeabur.app/" target="_blank">
-<img src="https://voomap.zeabur.app/voomap.svg" alt="Voomap" height="250" width="250"/>
+<a href="https://voomap.ilyal.me/" target="_blank">
+<img src="https://voomap.ilyal.me/voomap.svg" alt="Voomap" height="250" width="250"/>
 </a>
 </p>
 
@@ -85,7 +85,7 @@ For maximum flexibility and programmatic control:
 </template>
 ```
 
-Refer to [documentations](https://voomap.zeabur.app/) for more details.
+Refer to [documentations](https://voomap.ilyal.me/) for more details.
 
 ## 📃 Code Style
 
